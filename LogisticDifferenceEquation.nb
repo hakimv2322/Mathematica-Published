@@ -1,0 +1,3652 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[    158328,       3651]
+NotebookOptionsPosition[    152791,       3481]
+NotebookOutlinePosition[    154409,       3531]
+CellTagsIndexPosition[    154073,       3519]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["The Logistic Difference Equation", "DemoTitle",
+ CellChangeTimes->{{3.574348837439958*^9, 3.574348847720358*^9}, {
+  3.5746986453828616`*^9, 3.5746986458109045`*^9}}],
+
+Cell["", "InitializationSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "Data", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Data", "=", 
+       RowBox[{"RecurrenceTable", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"u", "[", 
+             RowBox[{"n", "+", "1"}], "]"}], "\[Equal]", 
+            RowBox[{"p", "*", 
+             RowBox[{"u", "[", "n", "]"}], "*", 
+             RowBox[{"(", 
+              RowBox[{"1", "-", 
+               RowBox[{"u", "[", "n", "]"}]}], ")"}]}]}], ",", 
+           RowBox[{
+            RowBox[{"u", "[", "0", "]"}], "\[Equal]", "UZero"}]}], "}"}], ",",
+          "u", ",", 
+         RowBox[{"{", 
+          RowBox[{"n", ",", "0", ",", "40"}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"graph", "\[Equal]", "\"\<solution plot\>\""}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Column", "[", 
+         RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Text", "@", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                SubscriptBox[
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<u\>\"", ",", " ", "Italic"}], "]"}], 
+                 RowBox[{"Row", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<n\>\"", ",", " ", "Italic"}], "]"}], ",", 
+                    "\"\<+1\>\""}], "}"}], "]"}]], ",", "\"\< = \>\"", ",", 
+                "\"\<\[Rho] \>\"", ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  SubscriptBox["\"\<u\>\"", "\"\<n\>\""], ",", "Italic"}], 
+                 "]"}], ",", "\"\<(\>\"", ",", "\"\<1-\>\"", ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  SubscriptBox["\"\<u\>\"", "\"\<n\>\""], ",", "Italic"}], 
+                 "]"}], ",", "\"\<)\>\""}], "}"}], "]"}]}], 
+            "\[IndentingNewLine]", ",", "\"\<\>\"", ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Graphics", "[", 
+             RowBox[{
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"If", "[", 
+                 RowBox[{"line", ",", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Darker", "[", "Green", "]"}], ",", 
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"#", "+", "1"}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "2"}], "]"}], "]"}]}], "}"}]}], "}"}], 
+                    "]"}]}], "}"}], ")"}], "&"}], "/@", 
+                   RowBox[{"Table", "[", 
+                    RowBox[{"t", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"t", ",", "0", ",", 
+                    RowBox[{"max", "-", "1"}]}], "}"}]}], "]"}]}]}], "]"}], 
+                ",", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"{", 
+                    RowBox[{"Red", ",", 
+                    RowBox[{"PointSize", "[", "0.01", "]"}], ",", 
+                    RowBox[{"Point", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}]}], "}"}], "]"}]}], 
+                    "}"}], ")"}], "&"}], "/@", 
+                 RowBox[{"Table", "[", 
+                  RowBox[{"t", ",", 
+                   RowBox[{"{", 
+                    RowBox[{"t", ",", "0", ",", "max"}], "}"}]}], "]"}]}]}], 
+               "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"ImageSize", "\[Rule]", 
+               RowBox[{"1.15", " ", "520"}]}], ",", 
+              RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+              RowBox[{"PlotRange", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "max"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"-", "0.1"}], ",", "1"}], "}"}]}], "}"}]}], ",", 
+              RowBox[{"AspectRatio", "\[Rule]", "0.5"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"AxesLabel", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<n\>\"", ",", "16", ",", "Italic"}], "]"}], ",", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                   SubscriptBox["\"\<u\>\"", "\"\<n\>\""], ",", "Italic", ",",
+                    "16"}], "]"}]}], "}"}]}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Text", "@", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", 
+               RowBox[{"\"\<equilibrium: \>\"", ",", " ", 
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  SubscriptBox["\"\<u\>\"", "\"\<n\>\""], ",", "Italic"}], 
+                 "]"}], ",", "\"\< = \>\"", ",", " ", "\[IndentingNewLine]", 
+                RowBox[{"Which", "[", 
+                 RowBox[{
+                  RowBox[{"p", "\[LessEqual]", "1"}], ",", "0", ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"1", "<", "p", "<", "3"}], ",", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"p", "-", "1"}], ")"}], "/", "p"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"p", "\[GreaterEqual]", "3"}], ")"}], "&&", 
+                   RowBox[{"(", 
+                    RowBox[{"UZero", "==", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"p", "-", "1"}], ")"}], "/", "p"}]}], ")"}]}], 
+                  ",", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"p", "-", "1"}], ")"}], "/", "p"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"p", "\[GreaterEqual]", "3"}], ")"}], "&&", 
+                   RowBox[{"(", 
+                    RowBox[{"UZero", "!=", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"p", "-", "1"}], ")"}], "/", "p"}]}], ")"}]}], 
+                  ",", "\"\<N/A\>\""}], "]"}]}], "\[IndentingNewLine]", "}"}],
+               "]"}]}]}], "\[IndentingNewLine]", "}"}], ",", " ", 
+          RowBox[{"Alignment", "\[Rule]", " ", "Center"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"Column", "[", 
+         RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Text", "@", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                SubscriptBox[
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<u\>\"", ",", " ", "Italic"}], "]"}], 
+                 RowBox[{"Row", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<n\>\"", ",", " ", "Italic"}], "]"}], ",", 
+                    "\"\<+1\>\""}], "}"}], "]"}]], ",", "\"\< = \>\"", ",", 
+                "\"\<\[Rho] \>\"", ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  SubscriptBox["\"\<u\>\"", "\"\<n\>\""], ",", "Italic"}], 
+                 "]"}], ",", "\"\<(\>\"", ",", "\"\<1-\>\"", ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  SubscriptBox["\"\<u\>\"", "\"\<n\>\""], ",", " ", 
+                  "Italic"}], "]"}], ",", "\"\<)\>\""}], "}"}], "]"}]}], 
+            "\[IndentingNewLine]", ",", "\"\<\>\"", ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Show", "[", 
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"Plot", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"Tooltip", "[", 
+                    RowBox[{"x", ",", 
+                    RowBox[{"Text", "@", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<y\>\"", ",", " ", "Italic"}], "]"}], ",", 
+                    "\"\< = \>\"", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<x\>\"", ",", " ", "Italic"}], "]"}]}], "}"}],
+                     "]"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Tooltip", "[", 
+                    RowBox[{
+                    RowBox[{"p", " ", "x", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"1", "-", "x"}], ")"}]}], ",", 
+                    RowBox[{"Text", "@", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<y\>\"", ",", " ", "Italic"}], "]"}], ",", 
+                    "\"\< = \>\"", ",", "\"\<\[Rho] \>\"", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<x\>\"", ",", " ", "Italic"}], "]"}], ",", 
+                    "\"\< (\>\"", ",", "\"\<1 - \>\"", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<x\>\"", ",", " ", "Italic"}], "]"}], ",", 
+                    "\"\<)\>\""}], "}"}], "]"}]}]}], "]"}]}], "}"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"{", 
+                  RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PlotRange", "\[Rule]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "1"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ",", 
+                 RowBox[{"AspectRatio", "\[Rule]", 
+                  RowBox[{"1", "/", "2.1"}]}], ",", 
+                 RowBox[{"ImageSize", "\[Rule]", 
+                  RowBox[{"1.1", " ", "520"}]}], ",", 
+                 RowBox[{"PlotStyle", "\[Rule]", 
+                  RowBox[{"{", 
+                   RowBox[{"Blue", ",", "Red"}], "}"}]}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"AxesLabel", "\[Rule]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<x\>\"", ",", "Italic", ",", "16"}], "]"}], 
+                    ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<y\>\"", ",", "Italic", ",", "16"}], "]"}]}], 
+                   "}"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"Graphics", "[", 
+                RowBox[{"{", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Darker", "[", "Green", "]"}], ",", 
+                    RowBox[{"Arrowheads", "[", "0.02", "]"}], ",", 
+                    RowBox[{"Arrow", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "/", "3"}], ")"}], "*", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}]}], "}"}], 
+                    "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+                  RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Darker", "[", "Green", "]"}], ",", 
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "/", "3"}], ")"}], "*", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "}"}]}], "}"}], "]"}]}],
+                    "}"}], ",", "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Darker", "[", "Green", "]"}], ",", 
+                    RowBox[{"Arrowheads", "[", "0.02", "]"}], ",", 
+                    RowBox[{"Arrow", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "/", "3"}], ")"}], "*", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "-", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], ")"}]}]}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "}"}]}], "}"}], "]"}]}],
+                    "}"}], ",", "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Darker", "[", "Green", "]"}], ",", 
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "/", "3"}], ")"}], "*", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "-", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], ")"}]}]}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "}"}]}], "}"}], "]"}]}],
+                    "}"}], ",", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"Abs", "[", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}], "-", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}]}], "]"}], ">", "0.002"}], 
+                    ")"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Abs", "[", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}], "-", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}]}], "]"}], ">", "0.03"}], 
+                    ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Darker", "[", "Green", "]"}], ",", 
+                    RowBox[{"Arrowheads", "[", "0.02", "]"}], ",", 
+                    RowBox[{"Arrow", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "/", "3"}], ")"}], "*", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}], "-", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}]}], ")"}]}], "+", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}]}]}], "}"}]}], "}"}], 
+                    "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Darker", "[", "Green", "]"}], ",", 
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "/", "3"}], ")"}], "*", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}], "-", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}]}], ")"}]}], "+", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}]}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}]}], "}"}]}], "}"}], 
+                    "]"}]}], "}"}]}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Darker", "[", "Green", "]"}], ",", 
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}]}], "}"}]}], "}"}], 
+                    "]"}]}], "}"}]}], "\[IndentingNewLine]", "]"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Abs", "[", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}], "-", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}]}], "]"}], ">", "0.03"}], 
+                    ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Darker", "[", "Green", "]"}], ",", 
+                    RowBox[{"Arrowheads", "[", "0.02", "]"}], ",", 
+                    RowBox[{"Arrow", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}], "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "/", "3"}], ")"}], "*", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}], "-", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}]}], ")"}]}]}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}]}], "}"}]}], "}"}], 
+                    "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Darker", "[", "Green", "]"}], ",", 
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}], "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "/", "3"}], ")"}], "*", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}], "-", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}]}], ")"}]}]}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}]}], "}"}]}], "}"}], 
+                    "]"}]}], "}"}]}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Darker", "[", "Green", "]"}], ",", 
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", "#", "]"}], "]"}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}], ",", 
+                    RowBox[{"Data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"#", "+", "1"}], "]"}], "]"}]}], "}"}]}], "}"}], 
+                    "]"}]}], "}"}]}], "\[IndentingNewLine]", "]"}]}], "}"}], 
+                    ",", 
+                    RowBox[{"{", "}"}]}], "]"}], "\[IndentingNewLine]", "}"}],
+                     "&"}], "/@", 
+                   RowBox[{"Table", "[", 
+                    RowBox[{"x", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"x", ",", "2", ",", "max"}], "}"}]}], "]"}]}]}], 
+                 "\[IndentingNewLine]", "}"}], "]"}]}], "\[IndentingNewLine]",
+               "}"}], "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Text", "@", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", 
+               RowBox[{"\"\<equilibrium: \>\"", ",", " ", 
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  SubscriptBox["\"\<u\>\"", "\"\<n\>\""], ",", "Italic"}], 
+                 "]"}], ",", "\"\< = \>\"", ",", " ", "\[IndentingNewLine]", 
+                RowBox[{"Which", "[", 
+                 RowBox[{
+                  RowBox[{"p", "\[LessEqual]", "1"}], ",", "0", ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"1", "<", "p", "<", "3"}], ",", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"p", "-", "1"}], ")"}], "/", "p"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"p", "\[GreaterEqual]", "3"}], ")"}], "&&", 
+                   RowBox[{"(", 
+                    RowBox[{"UZero", "==", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"p", "-", "1"}], ")"}], "/", "p"}]}], ")"}]}], 
+                  ",", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"p", "-", "1"}], ")"}], "/", "p"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"p", "\[GreaterEqual]", "3"}], ")"}], "&&", 
+                   RowBox[{"(", 
+                    RowBox[{"UZero", "!=", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"p", "-", "1"}], ")"}], "/", "p"}]}], ")"}]}], 
+                  ",", "\"\<N/A\>\""}], "]"}]}], "\[IndentingNewLine]", "}"}],
+               "]"}]}]}], "\[IndentingNewLine]", "}"}], ",", " ", 
+          RowBox[{"Alignment", "\[Rule]", " ", "Center"}]}], "]"}]}], 
+       "\[IndentingNewLine]", "]"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1.5", ",", "\"\<\[Rho]\>\""}], "}"}], ",", "0.01", 
+     ",", "3.99", ",", "0.004", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"UZero", ",", "0.8", ",", 
+       RowBox[{"Row", "[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<initial value (\>\"", ",", 
+          SubscriptBox[
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<u\>\"", ",", "Italic"}], "]"}], "0"], ",", 
+          "\"\<)\>\""}], "}"}], "]"}]}], "}"}], ",", "0.01", ",", "0.99", ",",
+      "0.004", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"max", ",", "10", ",", "\"\<number of terms\>\""}], "}"}], ",", 
+     "2", ",", "38", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Control", "@", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"graph", ",", "\"\<solution plot\>\""}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\"\<solution plot\>\"", ",", "\"\<stairstep diagram\>\""}],
+           "}"}], ",", "PopupMenu"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Spacer", "[", "20", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Control", "@", 
+       RowBox[{"{", 
+        RowBox[{"line", ",", "Checkbox", ",", 
+         RowBox[{"Enabled", "\[Rule]", 
+          RowBox[{"graph", "==", "\"\<solution plot\>\""}]}]}], "}"}]}], 
+      ","}], "\[IndentingNewLine]", "}"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"ContentSize", "\[Rule]", 
+    RowBox[{"1.15", 
+     RowBox[{"{", 
+      RowBox[{"550", ",", "350"}], "}"}]}]}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{
+  3.574348853320758*^9, {3.574350133652358*^9, 3.5743502772971582`*^9}, {
+   3.574350380881158*^9, 3.574350392331558*^9}, {3.5743504555271583`*^9, 
+   3.574350475619958*^9}, {3.5743507271855583`*^9, 3.5743508047799582`*^9}, {
+   3.5743509202979584`*^9, 3.5743509929159584`*^9}, {3.5743510789811583`*^9, 
+   3.5743510990739584`*^9}, {3.574351145686758*^9, 3.574351163798358*^9}, {
+   3.574351279253958*^9, 3.574351280735958*^9}, {3.574351333994358*^9, 
+   3.574351337644758*^9}, {3.574351391901558*^9, 3.5743513927439585`*^9}, {
+   3.574351452133158*^9, 3.5743514528507586`*^9}, {3.5743621835581636`*^9, 
+   3.574362193542164*^9}, {3.5744523191969395`*^9, 3.5744523347059393`*^9}, {
+   3.5744523959379396`*^9, 3.5744524121999397`*^9}, {3.5744529029569397`*^9, 
+   3.574452913037939*^9}, {3.5745171692474003`*^9, 3.5745172990376*^9}, 
+   3.5745225838458*^9, {3.5745226351368*^9, 3.5745227886698*^9}, {
+   3.5745228422248*^9, 3.5745229125088*^9}, {3.5745229479348*^9, 
+   3.5745229609927998`*^9}, {3.5745229929168*^9, 3.5745230308578*^9}, {
+   3.5745230939518003`*^9, 3.5745231467888002`*^9}, {3.5745231861698*^9, 
+   3.5745232146588*^9}, {3.5745232614927998`*^9, 3.5745232667388*^9}, {
+   3.5745233812818003`*^9, 3.5745234000878*^9}, {3.5745234746218*^9, 
+   3.5745234816108*^9}, {3.5745235267508*^9, 3.5745235465987997`*^9}, {
+   3.5745236130628*^9, 3.5745236156708*^9}, {3.5745236719398003`*^9, 
+   3.5745236740998*^9}, {3.5745238851837997`*^9, 3.5745239641488*^9}, {
+   3.5745241042558002`*^9, 3.5745241218677998`*^9}, {3.5745242190618*^9, 
+   3.5745242324678*^9}, 3.5745242729608*^9, {3.5745243432108*^9, 
+   3.5745244299098*^9}, {3.5745244722928*^9, 3.5745245492438*^9}, {
+   3.5745246558918*^9, 3.5745247242608*^9}, {3.5745247897218*^9, 
+   3.5745248723378*^9}, {3.5745251021928*^9, 3.5745251216548*^9}, {
+   3.5745254023288*^9, 3.5745254031758003`*^9}, {3.5745254703578*^9, 
+   3.5745254715288*^9}, {3.5745259337998*^9, 3.5745259771907997`*^9}, {
+   3.5745263312278*^9, 3.5745263762248*^9}, {3.5745267346308002`*^9, 
+   3.5745267404438*^9}, {3.5745274475288*^9, 3.5745276332288*^9}, {
+   3.5745277255458*^9, 3.5745277726247997`*^9}, {3.5745278313887997`*^9, 
+   3.5745278771078*^9}, {3.5745279510758*^9, 3.5745279964458*^9}, {
+   3.5745280808188*^9, 3.5745281109217997`*^9}, {3.5745288102658*^9, 
+   3.5745288196088*^9}, {3.5745288814807997`*^9, 3.5745290573938*^9}, {
+   3.5745290949838*^9, 3.5745291061998*^9}, {3.5745291426328*^9, 
+   3.5745291488157997`*^9}, {3.5745291956148*^9, 3.5745292018747997`*^9}, {
+   3.5745292414188004`*^9, 3.5745293097348003`*^9}, {3.5745293573028*^9, 
+   3.5745294044217997`*^9}, {3.5745295414248*^9, 3.5745295720448*^9}, {
+   3.5745317249877996`*^9, 3.5745317878308*^9}, {3.5745318507567997`*^9, 
+   3.5745318817008*^9}, {3.5745319449108*^9, 3.5745319690578003`*^9}, {
+   3.5745320005028*^9, 3.5745321902398*^9}, {3.5745322221998*^9, 
+   3.5745322785558*^9}, 3.5745323121738*^9, {3.5746101368363333`*^9, 
+   3.5746102330149503`*^9}, {3.574610598146366*^9, 3.574610604870366*^9}, {
+   3.5746106410323663`*^9, 3.574610677495366*^9}, {3.5746107183403664`*^9, 
+   3.5746107401823664`*^9}, {3.5746110641790676`*^9, 3.574611096616311*^9}, {
+   3.5746983823465605`*^9, 3.5746984665219774`*^9}, {3.574716398233719*^9, 
+   3.574716413205386*^9}, {3.574716458697858*^9, 3.574716490655509*^9}, {
+   3.574716565416754*^9, 3.574716701455131*^9}, {3.574716753362975*^9, 
+   3.5747168393497267`*^9}, 3.57471689038343*^9, {3.574716940330113*^9, 
+   3.5747170238890057`*^9}, {3.574717057044826*^9, 3.5747170823344517`*^9}, {
+   3.574717117242343*^9, 3.57471717648252*^9}, {3.574717224452989*^9, 
+   3.574717236108459*^9}, 3.574717272737019*^9, {3.574777190653049*^9, 
+   3.574777350425971*^9}, {3.575283181523219*^9, 3.575283188108049*^9}, {
+   3.5753064000050592`*^9, 3.575306400887753*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`graph$$ = 
+    "solution plot", $CellContext`line$$ = True, $CellContext`max$$ = 
+    10, $CellContext`p$$ = 1.5, $CellContext`UZero$$ = 0.8, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`p$$], 1.5, "\[Rho]"}, 0.01, 3.99, 0.004}, {{
+       Hold[$CellContext`UZero$$], 0.8, 
+       Row[{"initial value (", 
+         Subscript[
+          Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004}, {{
+       Hold[$CellContext`max$$], 10, "number of terms"}, 2, 38, 1}, {{
+       Hold[$CellContext`graph$$], "solution plot"}, {
+      "solution plot", "stairstep diagram"}}, {
+      Hold[$CellContext`line$$], {True, False}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Spacer[20], 
+         Manipulate`Place[2], Null}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {598., {179.5, 184.5}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`p$4162$$ =
+     0, $CellContext`UZero$4163$$ = 0, $CellContext`max$4164$$ = 
+    0, $CellContext`graph$4165$$ = False, $CellContext`line$4166$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`graph$$ = 
+        "solution plot", $CellContext`line$$ = True, $CellContext`max$$ = 
+        10, $CellContext`p$$ = 1.5, $CellContext`UZero$$ = 0.8}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`p$$, $CellContext`p$4162$$, 0], 
+        Hold[$CellContext`UZero$$, $CellContext`UZero$4163$$, 0], 
+        Hold[$CellContext`max$$, $CellContext`max$4164$$, 0], 
+        Hold[$CellContext`graph$$, $CellContext`graph$4165$$, False], 
+        Hold[$CellContext`line$$, $CellContext`line$4166$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`Data$}, $CellContext`Data$ = 
+         RecurrenceTable[{$CellContext`u[$CellContext`n + 
+              1] == $CellContext`p$$ $CellContext`u[$CellContext`n] (
+              1 - $CellContext`u[$CellContext`n]), $CellContext`u[
+             0] == $CellContext`UZero$$}, $CellContext`u, {$CellContext`n, 0, 
+            40}]; If[$CellContext`graph$$ == "solution plot", 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Graphics[{
+              If[$CellContext`line$$, 
+               Map[{
+                 Darker[Green], 
+                 Line[{{#, 
+                    Part[$CellContext`Data$, # + 1]}, {# + 1, 
+                    Part[$CellContext`Data$, # + 2]}}]}& , 
+                
+                Table[$CellContext`t, {$CellContext`t, 0, $CellContext`max$$ - 
+                  1}]]], 
+              Map[{Red, 
+                PointSize[0.01], 
+                Point[{#, 
+                  Part[$CellContext`Data$, # + 1]}]}& , 
+               
+               Table[$CellContext`t, {$CellContext`t, 
+                 0, $CellContext`max$$}]]}, ImageSize -> 1.15 520, Axes -> 
+             True, PlotRange -> {{0, $CellContext`max$$}, {-0.1, 1}}, 
+             AspectRatio -> 0.5, AxesLabel -> {
+               Style["n", 16, Italic], 
+               Style[
+                Subscript["u", "n"], Italic, 16]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center], 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Show[{
+              Plot[{
+                Tooltip[$CellContext`x, 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", 
+                    Style["x", Italic]}]]], 
+                Tooltip[$CellContext`p$$ $CellContext`x (1 - $CellContext`x), 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", "\[Rho] ", 
+                    Style["x", Italic], " (", "1 - ", 
+                    Style["x", Italic], ")"}]]]}, {$CellContext`x, 0, 1}, 
+               PlotRange -> {{0, 1}, {0, 1}}, AspectRatio -> 1/2.1, ImageSize -> 
+               1.1 520, PlotStyle -> {Blue, Red}, AxesLabel -> {
+                 Style["x", Italic, 16], 
+                 Style["y", Italic, 16]}], 
+              Graphics[{{
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 0}, {
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}}]}, {}, {
+                 Darker[Green], 
+                 Line[{{
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}, {
+                   Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 
+                 Line[{{Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 2], 
+                    Part[$CellContext`Data$, 2]}}]}, 
+                Map[{
+                  If[
+                  Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.002, {
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}}]}, {
+                    Darker[Green], 
+                    Line[{{
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}], 
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}}]}, {
+                    Darker[Green], 
+                    
+                    Line[{{Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}]}, {}]}& , 
+                 
+                 Table[$CellContext`x, {$CellContext`x, 
+                   2, $CellContext`max$$}]]}]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center]]], 
+      "Specifications" :> {{{$CellContext`p$$, 1.5, "\[Rho]"}, 0.01, 3.99, 
+         0.004, Appearance -> "Labeled"}, {{$CellContext`UZero$$, 0.8, 
+          Row[{"initial value (", 
+            Subscript[
+             Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004, Appearance -> 
+         "Labeled"}, {{$CellContext`max$$, 10, "number of terms"}, 2, 38, 1, 
+         Appearance -> "Labeled"}, {{$CellContext`graph$$, "solution plot"}, {
+         "solution plot", "stairstep diagram"}, ControlType -> PopupMenu, 
+         ControlPlacement -> 1}, {$CellContext`line$$, {True, False}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`graph$$ == "solution plot"], ControlPlacement -> 
+         2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Spacer[20], 
+          Manipulate`Place[2], Null}]}, 
+      "Options" :> {ContentSize -> {632.5, 402.49999999999994`}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{653., {277., 282.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.577805690658758*^9, 3.5778057134301577`*^9}, 
+   3.577805745650958*^9, 3.577806060154158*^9, 3.5778063354617577`*^9},
+ CellID->605112694]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell[TextData[{
+ "The logistic difference equation (or logistic map) ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["u", 
+     RowBox[{"n", "+", "1"}]], "=", 
+    RowBox[{"\[Rho]", " ", 
+     RowBox[{
+      SubscriptBox["u", "n"], "(", 
+      RowBox[{"1", "-", 
+       SubscriptBox["u", "n"]}], ")"}]}]}], TraditionalForm]], "InlineMath"],
+ ", a nonlinear first-order recurrence relation, is a time-discrete analogue \
+of the logistic differential equation, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    FractionBox[
+     RowBox[{"d", "\[InvisibleSpace]", "x"}], 
+     RowBox[{"d", "\[InvisibleSpace]", "t"}]], "=", 
+    RowBox[{"\[Rho]", " ", "x", " ", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", "x"}], ")"}]}]}], TraditionalForm]], "InlineMath"],
+ ". Like its continuous counterpart, it can be used to model the growth or \
+decay of a process, population, or financial instrument. "
+}], "ManipulateCaption",
+ CellChangeTimes->{{3.5743600829869633`*^9, 3.5743601489749637`*^9}, {
+   3.5743606096429634`*^9, 3.5743606153993635`*^9}, {3.574360895341364*^9, 
+   3.5743609084141636`*^9}, {3.5743609639189634`*^9, 
+   3.5743609890973635`*^9}, {3.5743610606233635`*^9, 3.5743611226957636`*^9}, 
+   3.5743611557365637`*^9, {3.5743612625497637`*^9, 3.574361264312564*^9}, {
+   3.5743612991161633`*^9, 3.5743613232649636`*^9}, {3.5743614086905637`*^9, 
+   3.5743616633761635`*^9}, {3.574361707711364*^9, 3.5743618946305637`*^9}, {
+   3.5743626604813633`*^9, 3.5743628058109636`*^9}, {3.5743628573533635`*^9, 
+   3.574362858429764*^9}, {3.5743630010917635`*^9, 3.5743630190785637`*^9}, {
+   3.5743749818835516`*^9, 3.574375056279951*^9}, {3.5743752025611515`*^9, 
+   3.5743752322323513`*^9}, {3.5745169871184*^9, 3.5745169905868*^9}, {
+   3.5745177501043997`*^9, 3.5745177515736*^9}, {3.5745331761988*^9, 
+   3.5745331762078*^9}, {3.5746104933143663`*^9, 3.5746105010053663`*^9}, {
+   3.574717324487999*^9, 3.574717352441729*^9}, {3.574776884968322*^9, 
+   3.574776946255631*^9}, {3.574776991671891*^9, 3.5747770502996798`*^9}, {
+   3.5747783128114433`*^9, 3.574778313337512*^9}, {3.574778401537178*^9, 
+   3.574778421865683*^9}, {3.574778460815134*^9, 3.574778463762403*^9}, {
+   3.574778620813286*^9, 3.574778680756218*^9}, {3.5747789009392014`*^9, 
+   3.5747789150062237`*^9}, {3.575282967653154*^9, 3.5752829690313053`*^9}}],
+
+Cell[TextData[{
+ "Depending on the value of the constant ",
+ Cell[BoxData[
+  FormBox["\[Rho]", TraditionalForm]], "InlineMath"],
+ ", the solution of the difference equation can approach an equilibrium, move \
+periodically through some cycle of values, or behave in a chaotic, \
+unpredictable way."
+}], "ManipulateCaption",
+ Deletable->True,
+ CellChangeTimes->{{3.5743600829869633`*^9, 3.5743601489749637`*^9}, {
+   3.5743606096429634`*^9, 3.5743606153993635`*^9}, {3.574360895341364*^9, 
+   3.5743609084141636`*^9}, {3.5743609639189634`*^9, 
+   3.5743609890973635`*^9}, {3.5743610606233635`*^9, 3.5743611226957636`*^9}, 
+   3.5743611557365637`*^9, {3.5743612625497637`*^9, 3.574361264312564*^9}, {
+   3.5743612991161633`*^9, 3.5743613232649636`*^9}, {3.5743614086905637`*^9, 
+   3.5743616633761635`*^9}, {3.574361707711364*^9, 3.5743618946305637`*^9}, {
+   3.5743626604813633`*^9, 3.5743628058109636`*^9}, {3.5743628573533635`*^9, 
+   3.574362858429764*^9}, {3.5743630010917635`*^9, 3.5743630190785637`*^9}, {
+   3.5743749818835516`*^9, 3.574375056279951*^9}, {3.5743752025611515`*^9, 
+   3.5743752322323513`*^9}, {3.5745169871184*^9, 3.5745169905868*^9}, {
+   3.5745177501043997`*^9, 3.5745177515736*^9}, {3.5745331761988*^9, 
+   3.5745331762078*^9}, {3.5746104933143663`*^9, 3.5746105010053663`*^9}, {
+   3.574717324487999*^9, 3.574717352441729*^9}, {3.574776884968322*^9, 
+   3.574776946255631*^9}, {3.574776991671891*^9, 3.574777115724078*^9}, {
+   3.574777367763126*^9, 3.574777368817778*^9}, {3.574778701452026*^9, 
+   3.5747787189468613`*^9}, {3.575282996128093*^9, 3.5752830334315033`*^9}, 
+   3.5753697919462166`*^9},
+ CellID->1490905212],
+
+Cell[TextData[{
+ "A visualization of solutions to the logistic difference equation can be \
+obtained using what can be called a \"stairstep diagram.\" A green line \
+intersects back and forth between the graphs of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"y", "=", "x"}], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox["y",
+     FontSlant->"Italic"], 
+    StyleBox["=",
+     FontSlant->"Italic"], 
+    RowBox[{"\[Rho]", " ", 
+     StyleBox["x",
+      FontSlant->"Italic"], 
+     StyleBox[" ",
+      FontSlant->"Italic"], 
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       StyleBox["x",
+        FontSlant->"Italic"]}], ")"}]}]}], TraditionalForm]], "InlineMath"],
+ ", beginning at the point ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["u", "0"], ",", "0"}], ")"}], TraditionalForm]], 
+  "InlineMath"],
+ ". Every intersection of the green line and the red parabola represents a \
+value of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["u", "n"], TraditionalForm]], "InlineMath"],
+ ". It is easy to see if the solution converges to a single point, oscillates \
+in \"square-like\" fashion, or is completely unpredictable."
+}], "ManipulateCaption",
+ CellChangeTimes->{{3.5745331788858*^9, 3.5745332579498*^9}, {
+  3.5745333913297997`*^9, 3.5745336602738*^9}, {3.574610523008366*^9, 
+  3.574610549886366*^9}, {3.574777404198269*^9, 3.5747774820162973`*^9}, {
+  3.5747787370362377`*^9, 3.574778738847789*^9}, {3.575283052287673*^9, 
+  3.575283107399185*^9}},
+ CellID->267370091]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`graph$$ = 
+    "solution plot", $CellContext`line$$ = True, $CellContext`max$$ = 
+    10, $CellContext`p$$ = 1.5, $CellContext`UZero$$ = 0.8, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`p$$], 1.5, "\[Rho]"}, 0.01, 3.99, 0.004}, {{
+       Hold[$CellContext`UZero$$], 0.8, 
+       Row[{"initial value (", 
+         Subscript[
+          Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004}, {{
+       Hold[$CellContext`max$$], 10, "number of terms"}, 2, 38, 1}, {{
+       Hold[$CellContext`graph$$], "solution plot"}, {
+      "solution plot", "stairstep diagram"}}, {
+      Hold[$CellContext`line$$], {True, False}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Spacer[20], 
+         Manipulate`Place[2], Null}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {598., {179.5, 184.5}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`p$1535$$ =
+     0, $CellContext`UZero$1536$$ = 0, $CellContext`max$1537$$ = 
+    0, $CellContext`graph$1538$$ = False, $CellContext`line$1539$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`graph$$ = 
+        "solution plot", $CellContext`line$$ = True, $CellContext`max$$ = 
+        10, $CellContext`p$$ = 1.5, $CellContext`UZero$$ = 0.8}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`p$$, $CellContext`p$1535$$, 0], 
+        Hold[$CellContext`UZero$$, $CellContext`UZero$1536$$, 0], 
+        Hold[$CellContext`max$$, $CellContext`max$1537$$, 0], 
+        Hold[$CellContext`graph$$, $CellContext`graph$1538$$, False], 
+        Hold[$CellContext`line$$, $CellContext`line$1539$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`Data$}, $CellContext`Data$ = 
+         RecurrenceTable[{$CellContext`u[$CellContext`n + 
+              1] == $CellContext`p$$ $CellContext`u[$CellContext`n] (
+              1 - $CellContext`u[$CellContext`n]), $CellContext`u[
+             0] == $CellContext`UZero$$}, $CellContext`u, {$CellContext`n, 0, 
+            40}]; If[$CellContext`graph$$ == "solution plot", 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Graphics[{
+              If[$CellContext`line$$, 
+               Map[{
+                 Darker[Green], 
+                 Line[{{#, 
+                    Part[$CellContext`Data$, # + 1]}, {# + 1, 
+                    Part[$CellContext`Data$, # + 2]}}]}& , 
+                
+                Table[$CellContext`t, {$CellContext`t, 0, $CellContext`max$$ - 
+                  1}]]], 
+              Map[{Red, 
+                PointSize[0.01], 
+                Point[{#, 
+                  Part[$CellContext`Data$, # + 1]}]}& , 
+               
+               Table[$CellContext`t, {$CellContext`t, 
+                 0, $CellContext`max$$}]]}, ImageSize -> 1.15 520, Axes -> 
+             True, PlotRange -> {{0, $CellContext`max$$}, {-0.1, 1}}, 
+             AspectRatio -> 0.5, AxesLabel -> {
+               Style["n", 16, Italic], 
+               Style[
+                Subscript["u", "n"], Italic, 16]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center], 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Show[{
+              Plot[{
+                Tooltip[$CellContext`x, 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", 
+                    Style["x", Italic]}]]], 
+                Tooltip[$CellContext`p$$ $CellContext`x (1 - $CellContext`x), 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", "\[Rho] ", 
+                    Style["x", Italic], " (", "1 - ", 
+                    Style["x", Italic], ")"}]]]}, {$CellContext`x, 0, 1}, 
+               PlotRange -> {{0, 1}, {0, 1}}, AspectRatio -> 1/2.1, ImageSize -> 
+               1.1 520, PlotStyle -> {Blue, Red}, AxesLabel -> {
+                 Style["x", Italic, 16], 
+                 Style["y", Italic, 16]}], 
+              Graphics[{{
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 0}, {
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}}]}, {}, {
+                 Darker[Green], 
+                 Line[{{
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}, {
+                   Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 
+                 Line[{{Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 2], 
+                    Part[$CellContext`Data$, 2]}}]}, 
+                Map[{
+                  If[
+                  Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.002, {
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}}]}, {
+                    Darker[Green], 
+                    Line[{{
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}], 
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}}]}, {
+                    Darker[Green], 
+                    
+                    Line[{{Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}]}, {}]}& , 
+                 
+                 Table[$CellContext`x, {$CellContext`x, 
+                   2, $CellContext`max$$}]]}]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center]]], 
+      "Specifications" :> {{{$CellContext`p$$, 1.5, "\[Rho]"}, 0.01, 3.99, 
+         0.004, Appearance -> "Labeled"}, {{$CellContext`UZero$$, 0.8, 
+          Row[{"initial value (", 
+            Subscript[
+             Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004, Appearance -> 
+         "Labeled"}, {{$CellContext`max$$, 10, "number of terms"}, 2, 38, 1, 
+         Appearance -> "Labeled"}, {{$CellContext`graph$$, "solution plot"}, {
+         "solution plot", "stairstep diagram"}, ControlType -> PopupMenu, 
+         ControlPlacement -> 1}, {$CellContext`line$$, {True, False}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`graph$$ == "solution plot"], ControlPlacement -> 
+         2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Spacer[20], 
+          Manipulate`Place[2], Null}]}, 
+      "Options" :> {ContentSize -> {632.5, 402.49999999999994`}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{653., {277., 282.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.577805690658758*^9, 3.5778057134301577`*^9}, 
+   3.577805745650958*^9},
+ CellID->65990293]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`graph$$ = 
+    "solution plot", $CellContext`line$$ = True, $CellContext`max$$ = 
+    14, $CellContext`p$$ = 2.61, $CellContext`UZero$$ = 0.29400000000000004`, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`p$$], 1.5, "\[Rho]"}, 0.01, 3.99, 0.004}, {{
+       Hold[$CellContext`UZero$$], 0.8, 
+       Row[{"initial value (", 
+         Subscript[
+          Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004}, {{
+       Hold[$CellContext`max$$], 10, "number of terms"}, 2, 38, 1}, {{
+       Hold[$CellContext`graph$$], "solution plot"}, {
+      "solution plot", "stairstep diagram"}}, {
+      Hold[$CellContext`line$$], {True, False}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Spacer[20], 
+         Manipulate`Place[2], Null}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {598., {179.5, 184.5}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`p$1535$$ =
+     0, $CellContext`UZero$1536$$ = 0, $CellContext`max$1537$$ = 
+    0, $CellContext`graph$1538$$ = False, $CellContext`line$1539$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`graph$$ = 
+        "solution plot", $CellContext`line$$ = True, $CellContext`max$$ = 
+        10, $CellContext`p$$ = 1.5, $CellContext`UZero$$ = 0.8}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`p$$, $CellContext`p$1535$$, 0], 
+        Hold[$CellContext`UZero$$, $CellContext`UZero$1536$$, 0], 
+        Hold[$CellContext`max$$, $CellContext`max$1537$$, 0], 
+        Hold[$CellContext`graph$$, $CellContext`graph$1538$$, False], 
+        Hold[$CellContext`line$$, $CellContext`line$1539$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`Data$}, $CellContext`Data$ = 
+         RecurrenceTable[{$CellContext`u[$CellContext`n + 
+              1] == $CellContext`p$$ $CellContext`u[$CellContext`n] (
+              1 - $CellContext`u[$CellContext`n]), $CellContext`u[
+             0] == $CellContext`UZero$$}, $CellContext`u, {$CellContext`n, 0, 
+            40}]; If[$CellContext`graph$$ == "solution plot", 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Graphics[{
+              If[$CellContext`line$$, 
+               Map[{
+                 Darker[Green], 
+                 Line[{{#, 
+                    Part[$CellContext`Data$, # + 1]}, {# + 1, 
+                    Part[$CellContext`Data$, # + 2]}}]}& , 
+                
+                Table[$CellContext`t, {$CellContext`t, 0, $CellContext`max$$ - 
+                  1}]]], 
+              Map[{Red, 
+                PointSize[0.01], 
+                Point[{#, 
+                  Part[$CellContext`Data$, # + 1]}]}& , 
+               
+               Table[$CellContext`t, {$CellContext`t, 
+                 0, $CellContext`max$$}]]}, ImageSize -> 1.15 520, Axes -> 
+             True, PlotRange -> {{0, $CellContext`max$$}, {-0.1, 1}}, 
+             AspectRatio -> 0.5, AxesLabel -> {
+               Style["n", 16, Italic], 
+               Style[
+                Subscript["u", "n"], Italic, 16]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center], 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Show[{
+              Plot[{
+                Tooltip[$CellContext`x, 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", 
+                    Style["x", Italic]}]]], 
+                Tooltip[$CellContext`p$$ $CellContext`x (1 - $CellContext`x), 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", "\[Rho] ", 
+                    Style["x", Italic], " (", "1 - ", 
+                    Style["x", Italic], ")"}]]]}, {$CellContext`x, 0, 1}, 
+               PlotRange -> {{0, 1}, {0, 1}}, AspectRatio -> 1/2.1, ImageSize -> 
+               1.1 520, PlotStyle -> {Blue, Red}, AxesLabel -> {
+                 Style["x", Italic, 16], 
+                 Style["y", Italic, 16]}], 
+              Graphics[{{
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 0}, {
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}}]}, {}, {
+                 Darker[Green], 
+                 Line[{{
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}, {
+                   Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 
+                 Line[{{Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 2], 
+                    Part[$CellContext`Data$, 2]}}]}, 
+                Map[{
+                  If[
+                  Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.002, {
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}}]}, {
+                    Darker[Green], 
+                    Line[{{
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}], 
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}}]}, {
+                    Darker[Green], 
+                    
+                    Line[{{Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}]}, {}]}& , 
+                 
+                 Table[$CellContext`x, {$CellContext`x, 
+                   2, $CellContext`max$$}]]}]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center]]], 
+      "Specifications" :> {{{$CellContext`p$$, 1.5, "\[Rho]"}, 0.01, 3.99, 
+         0.004, Appearance -> "Labeled"}, {{$CellContext`UZero$$, 0.8, 
+          Row[{"initial value (", 
+            Subscript[
+             Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004, Appearance -> 
+         "Labeled"}, {{$CellContext`max$$, 10, "number of terms"}, 2, 38, 1, 
+         Appearance -> "Labeled"}, {{$CellContext`graph$$, "solution plot"}, {
+         "solution plot", "stairstep diagram"}, ControlType -> PopupMenu, 
+         ControlPlacement -> 1}, {$CellContext`line$$, {True, False}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`graph$$ == "solution plot"], ControlPlacement -> 
+         2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Spacer[20], 
+          Manipulate`Place[2], Null}]}, 
+      "Options" :> {ContentSize -> {632.5, 402.49999999999994`}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{653., {277., 282.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.577805690658758*^9, 3.5778057134301577`*^9}, 
+   3.577805745650958*^9},
+ CellID->94535066],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`graph$$ = 
+    "stairstep diagram", $CellContext`line$$ = True, $CellContext`max$$ = 
+    14, $CellContext`p$$ = 2.61, $CellContext`UZero$$ = 0.29400000000000004`, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`p$$], 1.5, "\[Rho]"}, 0.01, 3.99, 0.004}, {{
+       Hold[$CellContext`UZero$$], 0.8, 
+       Row[{"initial value (", 
+         Subscript[
+          Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004}, {{
+       Hold[$CellContext`max$$], 10, "number of terms"}, 2, 38, 1}, {{
+       Hold[$CellContext`graph$$], "solution plot"}, {
+      "solution plot", "stairstep diagram"}}, {
+      Hold[$CellContext`line$$], {True, False}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Spacer[20], 
+         Manipulate`Place[2], Null}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {572., {173.5, 178.5}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`p$1535$$ =
+     0, $CellContext`UZero$1536$$ = 0, $CellContext`max$1537$$ = 
+    0, $CellContext`graph$1538$$ = False, $CellContext`line$1539$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`graph$$ = 
+        "solution plot", $CellContext`line$$ = True, $CellContext`max$$ = 
+        10, $CellContext`p$$ = 1.5, $CellContext`UZero$$ = 0.8}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`p$$, $CellContext`p$1535$$, 0], 
+        Hold[$CellContext`UZero$$, $CellContext`UZero$1536$$, 0], 
+        Hold[$CellContext`max$$, $CellContext`max$1537$$, 0], 
+        Hold[$CellContext`graph$$, $CellContext`graph$1538$$, False], 
+        Hold[$CellContext`line$$, $CellContext`line$1539$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`Data$}, $CellContext`Data$ = 
+         RecurrenceTable[{$CellContext`u[$CellContext`n + 
+              1] == $CellContext`p$$ $CellContext`u[$CellContext`n] (
+              1 - $CellContext`u[$CellContext`n]), $CellContext`u[
+             0] == $CellContext`UZero$$}, $CellContext`u, {$CellContext`n, 0, 
+            40}]; If[$CellContext`graph$$ == "solution plot", 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Graphics[{
+              If[$CellContext`line$$, 
+               Map[{
+                 Darker[Green], 
+                 Line[{{#, 
+                    Part[$CellContext`Data$, # + 1]}, {# + 1, 
+                    Part[$CellContext`Data$, # + 2]}}]}& , 
+                
+                Table[$CellContext`t, {$CellContext`t, 0, $CellContext`max$$ - 
+                  1}]]], 
+              Map[{Red, 
+                PointSize[0.01], 
+                Point[{#, 
+                  Part[$CellContext`Data$, # + 1]}]}& , 
+               
+               Table[$CellContext`t, {$CellContext`t, 
+                 0, $CellContext`max$$}]]}, ImageSize -> 1.15 520, Axes -> 
+             True, PlotRange -> {{0, $CellContext`max$$}, {-0.1, 1}}, 
+             AspectRatio -> 0.5, AxesLabel -> {
+               Style["n", 16, Italic], 
+               Style[
+                Subscript["u", "n"], Italic, 16]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center], 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Show[{
+              Plot[{
+                Tooltip[$CellContext`x, 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", 
+                    Style["x", Italic]}]]], 
+                Tooltip[$CellContext`p$$ $CellContext`x (1 - $CellContext`x), 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", "\[Rho] ", 
+                    Style["x", Italic], " (", "1 - ", 
+                    Style["x", Italic], ")"}]]]}, {$CellContext`x, 0, 1}, 
+               PlotRange -> {{0, 1}, {0, 1}}, AspectRatio -> 1/2.1, ImageSize -> 
+               1.1 520, PlotStyle -> {Blue, Red}, AxesLabel -> {
+                 Style["x", Italic, 16], 
+                 Style["y", Italic, 16]}], 
+              Graphics[{{
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 0}, {
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}}]}, {}, {
+                 Darker[Green], 
+                 Line[{{
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}, {
+                   Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 
+                 Line[{{Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 2], 
+                    Part[$CellContext`Data$, 2]}}]}, 
+                Map[{
+                  If[
+                  Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.002, {
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}}]}, {
+                    Darker[Green], 
+                    Line[{{
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}], 
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}}]}, {
+                    Darker[Green], 
+                    
+                    Line[{{Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}]}, {}]}& , 
+                 
+                 Table[$CellContext`x, {$CellContext`x, 
+                   2, $CellContext`max$$}]]}]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center]]], 
+      "Specifications" :> {{{$CellContext`p$$, 1.5, "\[Rho]"}, 0.01, 3.99, 
+         0.004, Appearance -> "Labeled"}, {{$CellContext`UZero$$, 0.8, 
+          Row[{"initial value (", 
+            Subscript[
+             Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004, Appearance -> 
+         "Labeled"}, {{$CellContext`max$$, 10, "number of terms"}, 2, 38, 1, 
+         Appearance -> "Labeled"}, {{$CellContext`graph$$, "solution plot"}, {
+         "solution plot", "stairstep diagram"}, ControlType -> PopupMenu, 
+         ControlPlacement -> 1}, {$CellContext`line$$, {True, False}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`graph$$ == "solution plot"], ControlPlacement -> 
+         2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Spacer[20], 
+          Manipulate`Place[2], Null}]}, 
+      "Options" :> {ContentSize -> {632.5, 402.49999999999994`}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{653., {277., 282.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.577805690658758*^9, 3.5778057134301577`*^9}, 
+   3.577805745650958*^9},
+ CellID->1483708],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`graph$$ = 
+    "solution plot", $CellContext`line$$ = True, $CellContext`max$$ = 
+    32, $CellContext`p$$ = 3.3899999999999997`, $CellContext`UZero$$ = 0.334, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`p$$], 1.5, "\[Rho]"}, 0.01, 3.99, 0.004}, {{
+       Hold[$CellContext`UZero$$], 0.8, 
+       Row[{"initial value (", 
+         Subscript[
+          Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004}, {{
+       Hold[$CellContext`max$$], 10, "number of terms"}, 2, 38, 1}, {{
+       Hold[$CellContext`graph$$], "solution plot"}, {
+      "solution plot", "stairstep diagram"}}, {
+      Hold[$CellContext`line$$], {True, False}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Spacer[20], 
+         Manipulate`Place[2], Null}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {598., {179.5, 184.5}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`p$1535$$ =
+     0, $CellContext`UZero$1536$$ = 0, $CellContext`max$1537$$ = 
+    0, $CellContext`graph$1538$$ = False, $CellContext`line$1539$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`graph$$ = 
+        "solution plot", $CellContext`line$$ = True, $CellContext`max$$ = 
+        10, $CellContext`p$$ = 1.5, $CellContext`UZero$$ = 0.8}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`p$$, $CellContext`p$1535$$, 0], 
+        Hold[$CellContext`UZero$$, $CellContext`UZero$1536$$, 0], 
+        Hold[$CellContext`max$$, $CellContext`max$1537$$, 0], 
+        Hold[$CellContext`graph$$, $CellContext`graph$1538$$, False], 
+        Hold[$CellContext`line$$, $CellContext`line$1539$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`Data$}, $CellContext`Data$ = 
+         RecurrenceTable[{$CellContext`u[$CellContext`n + 
+              1] == $CellContext`p$$ $CellContext`u[$CellContext`n] (
+              1 - $CellContext`u[$CellContext`n]), $CellContext`u[
+             0] == $CellContext`UZero$$}, $CellContext`u, {$CellContext`n, 0, 
+            40}]; If[$CellContext`graph$$ == "solution plot", 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Graphics[{
+              If[$CellContext`line$$, 
+               Map[{
+                 Darker[Green], 
+                 Line[{{#, 
+                    Part[$CellContext`Data$, # + 1]}, {# + 1, 
+                    Part[$CellContext`Data$, # + 2]}}]}& , 
+                
+                Table[$CellContext`t, {$CellContext`t, 0, $CellContext`max$$ - 
+                  1}]]], 
+              Map[{Red, 
+                PointSize[0.01], 
+                Point[{#, 
+                  Part[$CellContext`Data$, # + 1]}]}& , 
+               
+               Table[$CellContext`t, {$CellContext`t, 
+                 0, $CellContext`max$$}]]}, ImageSize -> 1.15 520, Axes -> 
+             True, PlotRange -> {{0, $CellContext`max$$}, {-0.1, 1}}, 
+             AspectRatio -> 0.5, AxesLabel -> {
+               Style["n", 16, Italic], 
+               Style[
+                Subscript["u", "n"], Italic, 16]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center], 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Show[{
+              Plot[{
+                Tooltip[$CellContext`x, 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", 
+                    Style["x", Italic]}]]], 
+                Tooltip[$CellContext`p$$ $CellContext`x (1 - $CellContext`x), 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", "\[Rho] ", 
+                    Style["x", Italic], " (", "1 - ", 
+                    Style["x", Italic], ")"}]]]}, {$CellContext`x, 0, 1}, 
+               PlotRange -> {{0, 1}, {0, 1}}, AspectRatio -> 1/2.1, ImageSize -> 
+               1.1 520, PlotStyle -> {Blue, Red}, AxesLabel -> {
+                 Style["x", Italic, 16], 
+                 Style["y", Italic, 16]}], 
+              Graphics[{{
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 0}, {
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}}]}, {}, {
+                 Darker[Green], 
+                 Line[{{
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}, {
+                   Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 
+                 Line[{{Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 2], 
+                    Part[$CellContext`Data$, 2]}}]}, 
+                Map[{
+                  If[
+                  Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.002, {
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}}]}, {
+                    Darker[Green], 
+                    Line[{{
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}], 
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}}]}, {
+                    Darker[Green], 
+                    
+                    Line[{{Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}]}, {}]}& , 
+                 
+                 Table[$CellContext`x, {$CellContext`x, 
+                   2, $CellContext`max$$}]]}]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center]]], 
+      "Specifications" :> {{{$CellContext`p$$, 1.5, "\[Rho]"}, 0.01, 3.99, 
+         0.004, Appearance -> "Labeled"}, {{$CellContext`UZero$$, 0.8, 
+          Row[{"initial value (", 
+            Subscript[
+             Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004, Appearance -> 
+         "Labeled"}, {{$CellContext`max$$, 10, "number of terms"}, 2, 38, 1, 
+         Appearance -> "Labeled"}, {{$CellContext`graph$$, "solution plot"}, {
+         "solution plot", "stairstep diagram"}, ControlType -> PopupMenu, 
+         ControlPlacement -> 1}, {$CellContext`line$$, {True, False}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`graph$$ == "solution plot"], ControlPlacement -> 
+         2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Spacer[20], 
+          Manipulate`Place[2], Null}]}, 
+      "Options" :> {ContentSize -> {632.5, 402.49999999999994`}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{653., {277., 282.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.577805690658758*^9, 3.5778057134301577`*^9}, 
+   3.577805745650958*^9},
+ CellID->535935559],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`graph$$ = 
+    "stairstep diagram", $CellContext`line$$ = True, $CellContext`max$$ = 
+    32, $CellContext`p$$ = 3.3899999999999997`, $CellContext`UZero$$ = 0.334, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`p$$], 1.5, "\[Rho]"}, 0.01, 3.99, 0.004}, {{
+       Hold[$CellContext`UZero$$], 0.8, 
+       Row[{"initial value (", 
+         Subscript[
+          Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004}, {{
+       Hold[$CellContext`max$$], 10, "number of terms"}, 2, 38, 1}, {{
+       Hold[$CellContext`graph$$], "solution plot"}, {
+      "solution plot", "stairstep diagram"}}, {
+      Hold[$CellContext`line$$], {True, False}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Spacer[20], 
+         Manipulate`Place[2], Null}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {572., {173.5, 178.5}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`p$1535$$ =
+     0, $CellContext`UZero$1536$$ = 0, $CellContext`max$1537$$ = 
+    0, $CellContext`graph$1538$$ = False, $CellContext`line$1539$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`graph$$ = 
+        "solution plot", $CellContext`line$$ = True, $CellContext`max$$ = 
+        10, $CellContext`p$$ = 1.5, $CellContext`UZero$$ = 0.8}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`p$$, $CellContext`p$1535$$, 0], 
+        Hold[$CellContext`UZero$$, $CellContext`UZero$1536$$, 0], 
+        Hold[$CellContext`max$$, $CellContext`max$1537$$, 0], 
+        Hold[$CellContext`graph$$, $CellContext`graph$1538$$, False], 
+        Hold[$CellContext`line$$, $CellContext`line$1539$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`Data$}, $CellContext`Data$ = 
+         RecurrenceTable[{$CellContext`u[$CellContext`n + 
+              1] == $CellContext`p$$ $CellContext`u[$CellContext`n] (
+              1 - $CellContext`u[$CellContext`n]), $CellContext`u[
+             0] == $CellContext`UZero$$}, $CellContext`u, {$CellContext`n, 0, 
+            40}]; If[$CellContext`graph$$ == "solution plot", 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Graphics[{
+              If[$CellContext`line$$, 
+               Map[{
+                 Darker[Green], 
+                 Line[{{#, 
+                    Part[$CellContext`Data$, # + 1]}, {# + 1, 
+                    Part[$CellContext`Data$, # + 2]}}]}& , 
+                
+                Table[$CellContext`t, {$CellContext`t, 0, $CellContext`max$$ - 
+                  1}]]], 
+              Map[{Red, 
+                PointSize[0.01], 
+                Point[{#, 
+                  Part[$CellContext`Data$, # + 1]}]}& , 
+               
+               Table[$CellContext`t, {$CellContext`t, 
+                 0, $CellContext`max$$}]]}, ImageSize -> 1.15 520, Axes -> 
+             True, PlotRange -> {{0, $CellContext`max$$}, {-0.1, 1}}, 
+             AspectRatio -> 0.5, AxesLabel -> {
+               Style["n", 16, Italic], 
+               Style[
+                Subscript["u", "n"], Italic, 16]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center], 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Show[{
+              Plot[{
+                Tooltip[$CellContext`x, 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", 
+                    Style["x", Italic]}]]], 
+                Tooltip[$CellContext`p$$ $CellContext`x (1 - $CellContext`x), 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", "\[Rho] ", 
+                    Style["x", Italic], " (", "1 - ", 
+                    Style["x", Italic], ")"}]]]}, {$CellContext`x, 0, 1}, 
+               PlotRange -> {{0, 1}, {0, 1}}, AspectRatio -> 1/2.1, ImageSize -> 
+               1.1 520, PlotStyle -> {Blue, Red}, AxesLabel -> {
+                 Style["x", Italic, 16], 
+                 Style["y", Italic, 16]}], 
+              Graphics[{{
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 0}, {
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}}]}, {}, {
+                 Darker[Green], 
+                 Line[{{
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}, {
+                   Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 
+                 Line[{{Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 2], 
+                    Part[$CellContext`Data$, 2]}}]}, 
+                Map[{
+                  If[
+                  Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.002, {
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}}]}, {
+                    Darker[Green], 
+                    Line[{{
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}], 
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}}]}, {
+                    Darker[Green], 
+                    
+                    Line[{{Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}]}, {}]}& , 
+                 
+                 Table[$CellContext`x, {$CellContext`x, 
+                   2, $CellContext`max$$}]]}]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center]]], 
+      "Specifications" :> {{{$CellContext`p$$, 1.5, "\[Rho]"}, 0.01, 3.99, 
+         0.004, Appearance -> "Labeled"}, {{$CellContext`UZero$$, 0.8, 
+          Row[{"initial value (", 
+            Subscript[
+             Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004, Appearance -> 
+         "Labeled"}, {{$CellContext`max$$, 10, "number of terms"}, 2, 38, 1, 
+         Appearance -> "Labeled"}, {{$CellContext`graph$$, "solution plot"}, {
+         "solution plot", "stairstep diagram"}, ControlType -> PopupMenu, 
+         ControlPlacement -> 1}, {$CellContext`line$$, {True, False}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`graph$$ == "solution plot"], ControlPlacement -> 
+         2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Spacer[20], 
+          Manipulate`Place[2], Null}]}, 
+      "Options" :> {ContentSize -> {632.5, 402.49999999999994`}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{653., {277., 282.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.577805690658758*^9, 3.5778057134301577`*^9}, 
+   3.577805745650958*^9},
+ CellID->147264154],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`graph$$ = 
+    "solution plot", $CellContext`line$$ = True, $CellContext`max$$ = 
+    38, $CellContext`p$$ = 3.8539999999999996`, $CellContext`UZero$$ = 0.666, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`p$$], 1.5, "\[Rho]"}, 0.01, 3.99, 0.004}, {{
+       Hold[$CellContext`UZero$$], 0.8, 
+       Row[{"initial value (", 
+         Subscript[
+          Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004}, {{
+       Hold[$CellContext`max$$], 10, "number of terms"}, 2, 38, 1}, {{
+       Hold[$CellContext`graph$$], "solution plot"}, {
+      "solution plot", "stairstep diagram"}}, {
+      Hold[$CellContext`line$$], {True, False}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Spacer[20], 
+         Manipulate`Place[2], Null}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {598., {179.5, 184.5}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`p$1535$$ =
+     0, $CellContext`UZero$1536$$ = 0, $CellContext`max$1537$$ = 
+    0, $CellContext`graph$1538$$ = False, $CellContext`line$1539$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`graph$$ = 
+        "solution plot", $CellContext`line$$ = True, $CellContext`max$$ = 
+        10, $CellContext`p$$ = 1.5, $CellContext`UZero$$ = 0.8}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`p$$, $CellContext`p$1535$$, 0], 
+        Hold[$CellContext`UZero$$, $CellContext`UZero$1536$$, 0], 
+        Hold[$CellContext`max$$, $CellContext`max$1537$$, 0], 
+        Hold[$CellContext`graph$$, $CellContext`graph$1538$$, False], 
+        Hold[$CellContext`line$$, $CellContext`line$1539$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`Data$}, $CellContext`Data$ = 
+         RecurrenceTable[{$CellContext`u[$CellContext`n + 
+              1] == $CellContext`p$$ $CellContext`u[$CellContext`n] (
+              1 - $CellContext`u[$CellContext`n]), $CellContext`u[
+             0] == $CellContext`UZero$$}, $CellContext`u, {$CellContext`n, 0, 
+            40}]; If[$CellContext`graph$$ == "solution plot", 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Graphics[{
+              If[$CellContext`line$$, 
+               Map[{
+                 Darker[Green], 
+                 Line[{{#, 
+                    Part[$CellContext`Data$, # + 1]}, {# + 1, 
+                    Part[$CellContext`Data$, # + 2]}}]}& , 
+                
+                Table[$CellContext`t, {$CellContext`t, 0, $CellContext`max$$ - 
+                  1}]]], 
+              Map[{Red, 
+                PointSize[0.01], 
+                Point[{#, 
+                  Part[$CellContext`Data$, # + 1]}]}& , 
+               
+               Table[$CellContext`t, {$CellContext`t, 
+                 0, $CellContext`max$$}]]}, ImageSize -> 1.15 520, Axes -> 
+             True, PlotRange -> {{0, $CellContext`max$$}, {-0.1, 1}}, 
+             AspectRatio -> 0.5, AxesLabel -> {
+               Style["n", 16, Italic], 
+               Style[
+                Subscript["u", "n"], Italic, 16]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center], 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Show[{
+              Plot[{
+                Tooltip[$CellContext`x, 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", 
+                    Style["x", Italic]}]]], 
+                Tooltip[$CellContext`p$$ $CellContext`x (1 - $CellContext`x), 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", "\[Rho] ", 
+                    Style["x", Italic], " (", "1 - ", 
+                    Style["x", Italic], ")"}]]]}, {$CellContext`x, 0, 1}, 
+               PlotRange -> {{0, 1}, {0, 1}}, AspectRatio -> 1/2.1, ImageSize -> 
+               1.1 520, PlotStyle -> {Blue, Red}, AxesLabel -> {
+                 Style["x", Italic, 16], 
+                 Style["y", Italic, 16]}], 
+              Graphics[{{
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 0}, {
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}}]}, {}, {
+                 Darker[Green], 
+                 Line[{{
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}, {
+                   Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 
+                 Line[{{Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 2], 
+                    Part[$CellContext`Data$, 2]}}]}, 
+                Map[{
+                  If[
+                  Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.002, {
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}}]}, {
+                    Darker[Green], 
+                    Line[{{
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}], 
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}}]}, {
+                    Darker[Green], 
+                    
+                    Line[{{Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}]}, {}]}& , 
+                 
+                 Table[$CellContext`x, {$CellContext`x, 
+                   2, $CellContext`max$$}]]}]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center]]], 
+      "Specifications" :> {{{$CellContext`p$$, 1.5, "\[Rho]"}, 0.01, 3.99, 
+         0.004, Appearance -> "Labeled"}, {{$CellContext`UZero$$, 0.8, 
+          Row[{"initial value (", 
+            Subscript[
+             Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004, Appearance -> 
+         "Labeled"}, {{$CellContext`max$$, 10, "number of terms"}, 2, 38, 1, 
+         Appearance -> "Labeled"}, {{$CellContext`graph$$, "solution plot"}, {
+         "solution plot", "stairstep diagram"}, ControlType -> PopupMenu, 
+         ControlPlacement -> 1}, {$CellContext`line$$, {True, False}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`graph$$ == "solution plot"], ControlPlacement -> 
+         2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Spacer[20], 
+          Manipulate`Place[2], Null}]}, 
+      "Options" :> {ContentSize -> {632.5, 402.49999999999994`}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{653., {277., 282.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.577805690658758*^9, 3.5778057134301577`*^9}, 
+   3.577805745650958*^9},
+ CellID->803962319],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`graph$$ = 
+    "stairstep diagram", $CellContext`line$$ = True, $CellContext`max$$ = 
+    38, $CellContext`p$$ = 3.8539999999999996`, $CellContext`UZero$$ = 0.666, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`p$$], 1.5, "\[Rho]"}, 0.01, 3.99, 0.004}, {{
+       Hold[$CellContext`UZero$$], 0.8, 
+       Row[{"initial value (", 
+         Subscript[
+          Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004}, {{
+       Hold[$CellContext`max$$], 10, "number of terms"}, 2, 38, 1}, {{
+       Hold[$CellContext`graph$$], "solution plot"}, {
+      "solution plot", "stairstep diagram"}}, {
+      Hold[$CellContext`line$$], {True, False}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Spacer[20], 
+         Manipulate`Place[2], Null}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {572., {173.5, 178.5}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`p$1535$$ =
+     0, $CellContext`UZero$1536$$ = 0, $CellContext`max$1537$$ = 
+    0, $CellContext`graph$1538$$ = False, $CellContext`line$1539$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`graph$$ = 
+        "solution plot", $CellContext`line$$ = True, $CellContext`max$$ = 
+        10, $CellContext`p$$ = 1.5, $CellContext`UZero$$ = 0.8}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`p$$, $CellContext`p$1535$$, 0], 
+        Hold[$CellContext`UZero$$, $CellContext`UZero$1536$$, 0], 
+        Hold[$CellContext`max$$, $CellContext`max$1537$$, 0], 
+        Hold[$CellContext`graph$$, $CellContext`graph$1538$$, False], 
+        Hold[$CellContext`line$$, $CellContext`line$1539$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`Data$}, $CellContext`Data$ = 
+         RecurrenceTable[{$CellContext`u[$CellContext`n + 
+              1] == $CellContext`p$$ $CellContext`u[$CellContext`n] (
+              1 - $CellContext`u[$CellContext`n]), $CellContext`u[
+             0] == $CellContext`UZero$$}, $CellContext`u, {$CellContext`n, 0, 
+            40}]; If[$CellContext`graph$$ == "solution plot", 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Graphics[{
+              If[$CellContext`line$$, 
+               Map[{
+                 Darker[Green], 
+                 Line[{{#, 
+                    Part[$CellContext`Data$, # + 1]}, {# + 1, 
+                    Part[$CellContext`Data$, # + 2]}}]}& , 
+                
+                Table[$CellContext`t, {$CellContext`t, 0, $CellContext`max$$ - 
+                  1}]]], 
+              Map[{Red, 
+                PointSize[0.01], 
+                Point[{#, 
+                  Part[$CellContext`Data$, # + 1]}]}& , 
+               
+               Table[$CellContext`t, {$CellContext`t, 
+                 0, $CellContext`max$$}]]}, ImageSize -> 1.15 520, Axes -> 
+             True, PlotRange -> {{0, $CellContext`max$$}, {-0.1, 1}}, 
+             AspectRatio -> 0.5, AxesLabel -> {
+               Style["n", 16, Italic], 
+               Style[
+                Subscript["u", "n"], Italic, 16]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center], 
+          Column[{
+            Text[
+             Row[{
+               Subscript[
+                Style["u", Italic], 
+                Row[{
+                  Style["n", Italic], "+1"}]], " = ", "\[Rho] ", 
+               Style[
+                Subscript["u", "n"], Italic], "(", "1-", 
+               Style[
+                Subscript["u", "n"], Italic], ")"}]], "", 
+            Show[{
+              Plot[{
+                Tooltip[$CellContext`x, 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", 
+                    Style["x", Italic]}]]], 
+                Tooltip[$CellContext`p$$ $CellContext`x (1 - $CellContext`x), 
+                 Text[
+                  Row[{
+                    Style["y", Italic], " = ", "\[Rho] ", 
+                    Style["x", Italic], " (", "1 - ", 
+                    Style["x", Italic], ")"}]]]}, {$CellContext`x, 0, 1}, 
+               PlotRange -> {{0, 1}, {0, 1}}, AspectRatio -> 1/2.1, ImageSize -> 
+               1.1 520, PlotStyle -> {Blue, Red}, AxesLabel -> {
+                 Style["x", Italic, 16], 
+                 Style["y", Italic, 16]}], 
+              Graphics[{{
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 0}, {
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}}]}, {}, {
+                 Darker[Green], 
+                 Line[{{
+                    Part[$CellContext`Data$, 1], (2/3) 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 Arrowheads[0.02], 
+                 Arrow[{{
+                    Part[$CellContext`Data$, 1], 
+                    Part[$CellContext`Data$, 2]}, {
+                   Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}}]}, {
+                 Darker[Green], 
+                 
+                 Line[{{Part[$CellContext`Data$, 1] - (2/3) (
+                    Part[$CellContext`Data$, 1] - 
+                    Part[$CellContext`Data$, 2]), 
+                    Part[$CellContext`Data$, 2]}, {
+                    Part[$CellContext`Data$, 2], 
+                    Part[$CellContext`Data$, 2]}}]}, 
+                Map[{
+                  If[
+                  Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.002, {
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}}]}, {
+                    Darker[Green], 
+                    Line[{{
+                    
+                    Part[$CellContext`Data$, #], (2/3) (
+                    Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]) + 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, #]}, {
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}}]}], 
+                    If[
+                    Abs[Part[$CellContext`Data$, # + 1] - 
+                    Part[$CellContext`Data$, #]] > 0.03, {{
+                    Darker[Green], 
+                    Arrowheads[0.02], 
+                    Arrow[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}}]}, {
+                    Darker[Green], 
+                    
+                    Line[{{Part[$CellContext`Data$, #] - (2/3) (
+                    Part[$CellContext`Data$, #] - 
+                    Part[$CellContext`Data$, # + 1]), 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}}, {
+                    Darker[Green], 
+                    Line[{{
+                    Part[$CellContext`Data$, #], 
+                    Part[$CellContext`Data$, # + 1]}, {
+                    Part[$CellContext`Data$, # + 1], 
+                    Part[$CellContext`Data$, # + 1]}}]}]}, {}]}& , 
+                 
+                 Table[$CellContext`x, {$CellContext`x, 
+                   2, $CellContext`max$$}]]}]}], 
+            Text[
+             Row[{"equilibrium: ", 
+               Style[
+                Subscript["u", "n"], Italic], " = ", 
+               
+               Which[$CellContext`p$$ <= 1, 0, 1 < $CellContext`p$$ < 
+                3, ($CellContext`p$$ - 1)/$CellContext`p$$, 
+                
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ == ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], ($CellContext`p$$ - 
+                 1)/$CellContext`p$$, 
+                And[$CellContext`p$$ >= 
+                 3, $CellContext`UZero$$ != ($CellContext`p$$ - 
+                   1)/$CellContext`p$$], "N/A"]}]]}, Alignment -> Center]]], 
+      "Specifications" :> {{{$CellContext`p$$, 1.5, "\[Rho]"}, 0.01, 3.99, 
+         0.004, Appearance -> "Labeled"}, {{$CellContext`UZero$$, 0.8, 
+          Row[{"initial value (", 
+            Subscript[
+             Style["u", Italic], 0], ")"}]}, 0.01, 0.99, 0.004, Appearance -> 
+         "Labeled"}, {{$CellContext`max$$, 10, "number of terms"}, 2, 38, 1, 
+         Appearance -> "Labeled"}, {{$CellContext`graph$$, "solution plot"}, {
+         "solution plot", "stairstep diagram"}, ControlType -> PopupMenu, 
+         ControlPlacement -> 1}, {$CellContext`line$$, {True, False}, 
+         ControlType -> Checkbox, Enabled -> 
+         Dynamic[$CellContext`graph$$ == "solution plot"], ControlPlacement -> 
+         2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Spacer[20], 
+          Manipulate`Place[2], Null}]}, 
+      "Options" :> {ContentSize -> {632.5, 402.49999999999994`}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{653., {277., 282.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.577805690658758*^9, 3.5778057134301577`*^9}, 
+   3.577805745650958*^9},
+ CellID->382727381]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "DetailsSection"],
+
+Cell[TextData[{
+ "The equilibrium values for ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["u", "n"], TraditionalForm]], "InlineMath"],
+ " determine how or whether the long-term activity of a solution is \
+predictable. If ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["u", 
+     RowBox[{"n", "+", "1"}]], "=", 
+    RowBox[{"\[Rho]", " ", 
+     RowBox[{
+      SubscriptBox["u", "n"], "(", 
+      RowBox[{"1", "-", 
+       SubscriptBox["u", "n"]}], ")"}]}]}], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["u", "\[Infinity]"], "=", 
+    RowBox[{
+     SubscriptBox["lim", 
+      RowBox[{"n", "\[Rule]", "\[Infinity]"}]], 
+     SubscriptBox["u", "n"]}]}], TraditionalForm]], "InlineMath"],
+ ", then ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["u", "\[Infinity]"], "=", 
+    RowBox[{"\[Rho]", " ", 
+     RowBox[{
+      SubscriptBox["u", "\[Infinity]"], "(", 
+      RowBox[{"1", "-", 
+       SubscriptBox["u", "\[Infinity]"]}], ")"}]}]}], TraditionalForm]], 
+  "InlineMath"],
+ ", and the equilibrium solutions are ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["u", "\[Infinity]"], "=", "0"}], TraditionalForm]], 
+  "InlineMath"],
+ " or ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["u", "\[Infinity]"], "=", 
+    FractionBox[
+     RowBox[{"\[Rho]", "-", "1"}], "\[Rho]"]}], TraditionalForm]], 
+  "InlineMath"],
+ ". Further investigation can be done to show that if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"0", "<", "\[Rho]", "\[LessEqual]", "1"}], TraditionalForm]], 
+  "InlineMath"],
+ ", then ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["u", "\[Infinity]"], "=", "0"}], TraditionalForm]], 
+  "InlineMath"],
+ " is an asymptotically stable value. For ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1", "<", "\[Rho]", "<", "3"}], TraditionalForm]], "InlineMath"],
+ ", solutions converge instead to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["u", "\[Infinity]"], "=", 
+    FractionBox[
+     RowBox[{"\[Rho]", "-", "1"}], "\[Rho]"]}], TraditionalForm]], 
+  "InlineMath"],
+ ". For ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Rho]", "\[GreaterEqual]", "3"}], TraditionalForm]], 
+  "InlineMath"],
+ ", solutions do not converge to a fixed point, except when ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["u", "n"], "=", 
+    FractionBox[
+     RowBox[{"\[Rho]", "-", "1"}], "\[Rho]"]}], TraditionalForm]], 
+  "InlineMath"],
+ " exactly for some ",
+ Cell[BoxData[
+  FormBox["N", TraditionalForm]], "InlineMath"],
+ ", in which case ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["u", "n"], "=", 
+    FractionBox[
+     RowBox[{"\[Rho]", "-", "1"}], "\[Rho]"]}], TraditionalForm]], 
+  "InlineMath"],
+ " for all ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"n", ">", "N"}], TraditionalForm]], "InlineMath"],
+ "."
+}], "DetailNotes",
+ CellChangeTimes->{{3.574363668553364*^9, 3.574363705743764*^9}, 
+   3.5743637419357634`*^9, {3.5743638894337635`*^9, 3.5743639540333633`*^9}, {
+   3.574364018461364*^9, 3.5743640457145634`*^9}, {3.5743641246349635`*^9, 
+   3.5743641389713635`*^9}, {3.5743642377349634`*^9, 3.574364314830164*^9}, 
+   3.5743643612869635`*^9, {3.5743646286085634`*^9, 3.5743648546837635`*^9}, {
+   3.5743649009689636`*^9, 3.5743651550149636`*^9}, {3.5743657496089635`*^9, 
+   3.5743657540861635`*^9}, {3.5743753798707514`*^9, 
+   3.5743753828971515`*^9}, {3.574517458067*^9, 3.5745175330502*^9}, {
+   3.5745175744862003`*^9, 3.5745175852408*^9}, {3.574610831730366*^9, 
+   3.574610946251276*^9}, {3.574777554725483*^9, 3.574777637344082*^9}, {
+   3.574777679097031*^9, 3.574777934274251*^9}, {3.575283287680872*^9, 
+   3.575283293192163*^9}, 3.575370052498269*^9},
+ CellID->664597930],
+
+Cell["Snapshot 1: the solution converges to a single value", "DetailNotes",
+ CellChangeTimes->{{3.5743651671361637`*^9, 3.5743655081521635`*^9}, {
+   3.574365540990164*^9, 3.5743656313453636`*^9}, {3.574365776300564*^9, 
+   3.5743658173597636`*^9}, 3.5745329590838003`*^9, {3.5746109528259335`*^9, 
+   3.5746109528369346`*^9}, {3.574777942782305*^9, 3.5747779488234243`*^9}},
+ CellID->252952856],
+
+Cell[TextData[{
+ "Snapshot 3: where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Rho]", "\[TildeTilde]", "3.4"}], TraditionalForm]], 
+  "InlineMath"],
+ ", the solution oscillates with period 2 (a \"two-cycle\") "
+}], "DetailNotes",
+ CellChangeTimes->{{3.5743651671361637`*^9, 3.5743655081521635`*^9}, {
+   3.574365540990164*^9, 3.5743656313453636`*^9}, {3.574365776300564*^9, 
+   3.5743658173597636`*^9}, 3.5745329590838003`*^9, {3.5746109528259335`*^9, 
+   3.574610957940445*^9}, {3.574777951748571*^9, 3.574777994071536*^9}},
+ CellID->463360418],
+
+Cell[TextData[{
+ "For larger values of ",
+ Cell[BoxData[
+  FormBox["\[Rho]", TraditionalForm]], "InlineMath"],
+ ", the long-term activity is highly chaotic, though there may be certain \
+values of ",
+ Cell[BoxData[
+  FormBox["\[Rho]", TraditionalForm]], "InlineMath"],
+ " with oscillations of period 4, 8, 16, 32, \[Ellipsis] . In this chaotic \
+region (",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Rho]", " ", ">", " ", "3.5"}], TraditionalForm]], "InlineMath"],
+ "), there is a high sensitivity to the value of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["u", "0"], TraditionalForm]], "InlineMath"],
+ ". Even varying ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["u", "0"], TraditionalForm]], "InlineMath"],
+ " a small amount changes most terms drastically; the solution becomes \
+unpredictable."
+}], "DetailNotes",
+ Deletable->True,
+ CellChangeTimes->{{3.5743651671361637`*^9, 3.5743655081521635`*^9}, {
+   3.574365540990164*^9, 3.5743656313453636`*^9}, {3.574365776300564*^9, 
+   3.5743658173597636`*^9}, 3.5745329590838003`*^9, {3.5746109528259335`*^9, 
+   3.574610957930444*^9}, {3.5747780133552237`*^9, 3.574778043560705*^9}, {
+   3.5753699195279737`*^9, 3.57536992909293*^9}, 3.5753701119552145`*^9},
+ CellID->209418],
+
+Cell["\<\
+Snapshot 5: a solution that is chaotic and ultimately unpredictable; it can, \
+however, be modeled as a simpler, three-cycle approximation\
+\>", "DetailNotes",
+ CellChangeTimes->{{3.5743656328741636`*^9, 3.5743656843229637`*^9}, {
+  3.574375440102351*^9, 3.5743754678079515`*^9}, {3.5745329686288*^9, 
+  3.5745329713118*^9}, {3.574778060312043*^9, 3.57477807440788*^9}, {
+  3.5753699618842087`*^9, 3.5753699622442446`*^9}},
+ CellID->310110421],
+
+Cell["\<\
+Snapshots 2, 4, and 6: the stairstep diagrams of snapshots 1, 3, and 5, \
+respectively\
+\>", "DetailNotes",
+ CellChangeTimes->{{3.5745329719728003`*^9, 3.5745329999848003`*^9}, {
+  3.574778079582938*^9, 3.5747781021617002`*^9}},
+ CellID->698292519]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\""]], "ControlSuggestions",
+ CellChangeTimes->{3.5743490963927584`*^9},
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" on Mac) and drag up and down to zoom.\""}]]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}]]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}]]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" to make ever finer adjustments.\""}]]], "ControlSuggestions",
+ CellChangeTimes->{3.574349065130358*^9},
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\""]], "ControlSuggestions",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.3895522232313623`*^9, {3.574349083897158*^9, 
+   3.5743490880935583`*^9}},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}]]], "ControlSuggestions",
+ CellChangeTimes->{3.574349070293958*^9},
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}]]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["logistic", "SearchTerms",
+ CellChangeTimes->{{3.5743491012755585`*^9, 3.574349103927558*^9}, {
+  3.5743492186967583`*^9, 3.5743492192271585`*^9}},
+ CellID->176598889],
+
+Cell["difference equation", "SearchTerms",
+ CellChangeTimes->{{3.5743491059243584`*^9, 3.5743491121175585`*^9}, {
+  3.5743491813815584`*^9, 3.574349181927558*^9}, {3.5743492204595585`*^9, 
+  3.574349220568758*^9}},
+ CellID->425196163],
+
+Cell["logistic difference equation", "SearchTerms",
+ CellChangeTimes->{{3.5743491140051584`*^9, 3.5743491201983585`*^9}, {
+  3.5743491830507584`*^9, 3.574349185437558*^9}, {3.574349221457958*^9, 
+  3.5743492218323584`*^9}},
+ CellID->786664411],
+
+Cell["chaos", "SearchTerms",
+ CellChangeTimes->{{3.574349134035558*^9, 3.574349138699958*^9}, {
+  3.574349170305558*^9, 3.574349173066758*^9}, {3.5743492227839584`*^9, 
+  3.574349222908758*^9}},
+ CellID->97206712],
+
+Cell["chaotic solutions", "SearchTerms",
+ CellChangeTimes->{{3.5743492090559583`*^9, 3.574349226652758*^9}},
+ CellID->166432079],
+
+Cell["recurrence relations", "SearchTerms",
+ CellChangeTimes->{{3.5743492090559583`*^9, 3.574349230100358*^9}},
+ CellID->12139951],
+
+Cell["recurrence", "SearchTerms",
+ CellChangeTimes->{{3.5743492147031584`*^9, 3.5743492315823584`*^9}, {
+  3.574349262704358*^9, 3.574349265091158*^9}, {3.5743493212199583`*^9, 
+  3.574349324027958*^9}},
+ CellID->422864036],
+
+Cell["stability", "SearchTerms",
+ CellChangeTimes->{{3.574349325260358*^9, 3.574349348051958*^9}, {
+  3.5743494502319584`*^9, 3.5743494502319584`*^9}, {3.574349785928358*^9, 
+  3.5743497859439583`*^9}},
+ CellID->11603247],
+
+Cell["asymptotic stability", "SearchTerms",
+ CellChangeTimes->{{3.574349786209158*^9, 3.574349790795558*^9}},
+ CellID->104892081],
+
+Cell["period", "SearchTerms",
+ CellChangeTimes->{{3.5743494507311583`*^9, 3.574349452244358*^9}},
+ CellID->344480299],
+
+Cell["cycle", "SearchTerms",
+ CellChangeTimes->{{3.574349452759158*^9, 3.5743494552551584`*^9}, {
+  3.5743496004131584`*^9, 3.5743496004131584`*^9}},
+ CellID->146474033],
+
+Cell["nonlinear difference equations", "SearchTerms",
+ CellChangeTimes->{
+  3.574349653063158*^9, {3.5743613354953637`*^9, 3.5743613354953637`*^9}, {
+   3.5745177320422*^9, 3.5745177320442*^9}},
+ CellID->17485368],
+
+Cell["time discretized systems", "SearchTerms",
+ CellChangeTimes->{{3.5745177324542*^9, 3.5745177372836*^9}},
+ CellID->686229409],
+
+Cell["discretized systems", "SearchTerms",
+ CellChangeTimes->{{3.574361336197364*^9, 3.5743613415013638`*^9}, {
+  3.5743658006677637`*^9, 3.574365800683364*^9}},
+ CellID->334748892],
+
+Cell["n-cycle", "SearchTerms",
+ CellChangeTimes->{{3.5743658031793633`*^9, 3.5743658046925635`*^9}},
+ CellID->38213807]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Logistic Map",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/LogisticMap.html"], None},
+ ButtonNote->"http://mathworld.wolfram.com/LogisticMap.html"]], "RelatedLinks",
+ CellID->674835308]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Victor Hakim",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/search.html?query=Victor+Hakim"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/search.html?query=Victor+Hakim"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.432333043774981*^9, 3.432333045441087*^9}, {
+   3.574349298927558*^9, 3.5743493007839584`*^9}, {3.5746110194215927`*^9, 
+   3.574611019426593*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{816, 830},
+WindowMargins->{{85, Automatic}, {Automatic, 20}},
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (October 6, 2011)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "AutomaticAnimation"->{
+  Cell[146791, 3312, 1483, 31, 22, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[148277, 3345, 886, 20, 22, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]},
+ "CreateAndDeleteLocators"->{
+  Cell[144898, 3260, 615, 14, 22, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "DragLocators"->{
+  Cell[144577, 3248, 318, 10, 22, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "GamepadControls"->{
+  Cell[146387, 3300, 401, 10, 22, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "ResizeImages"->{
+  Cell[143577, 3220, 333, 8, 22, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[143913, 3230, 661, 16, 22, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "SliderZoom"->{
+  Cell[145516, 3276, 868, 22, 22, "ControlSuggestions",
+   CellTags->"SliderZoom"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"AutomaticAnimation", 153171, 3492},
+ {"BookmarkAnimation", 153289, 3495},
+ {"CreateAndDeleteLocators", 153411, 3498},
+ {"DragLocators", 153528, 3501},
+ {"GamepadControls", 153637, 3504},
+ {"ResizeImages", 153746, 3507},
+ {"RotateAndZoomIn3D", 153856, 3510},
+ {"SliderZoom", 153965, 3513}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[422, 15, 172, 2, 74, "DemoTitle"],
+Cell[597, 19, 33, 0, 287, "InitializationSection"],
+Cell[CellGroupData[{
+Cell[655, 23, 29, 0, 194, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[709, 27, 34030, 743, 1698, "Input"],
+Cell[34742, 772, 12065, 262, 571, "Output",
+ CellID->605112694]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46853, 1040, 36, 0, 169, "ManipulateCaptionSection"],
+Cell[46892, 1042, 2330, 44, 64, "ManipulateCaption"],
+Cell[49225, 1088, 1647, 27, 38, "ManipulateCaption",
+ CellID->1490905212],
+Cell[50875, 1117, 1551, 44, 85, "ManipulateCaption",
+ CellID->267370091]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52463, 1166, 28, 0, 173, "ThumbnailSection"],
+Cell[52494, 1168, 12018, 262, 571, "Output",
+ CellID->65990293]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[64549, 1435, 28, 0, 143, "SnapshotsSection"],
+Cell[64580, 1437, 12036, 262, 571, "Output",
+ CellID->94535066],
+Cell[76619, 1701, 12039, 262, 571, "Output",
+ CellID->1483708],
+Cell[88661, 1965, 12037, 262, 571, "Output",
+ CellID->535935559],
+Cell[100701, 2229, 12041, 262, 571, "Output",
+ CellID->147264154],
+Cell[112745, 2493, 12037, 262, 571, "Output",
+ CellID->803962319],
+Cell[124785, 2757, 12041, 262, 571, "Output",
+ CellID->382727381]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[136863, 3024, 26, 0, 336, "DetailsSection"],
+Cell[136892, 3026, 3719, 116, 123, "DetailNotes",
+ CellID->664597930],
+Cell[140614, 3144, 395, 5, 22, "DetailNotes",
+ CellID->252952856],
+Cell[141012, 3151, 545, 12, 23, "DetailNotes",
+ CellID->463360418],
+Cell[141560, 3165, 1223, 30, 55, "DetailNotes",
+ CellID->209418],
+Cell[142786, 3197, 453, 8, 37, "DetailNotes",
+ CellID->310110421],
+Cell[143242, 3207, 258, 6, 22, "DetailNotes",
+ CellID->698292519]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[143537, 3218, 37, 0, 126, "ControlSuggestionsSection"],
+Cell[143577, 3220, 333, 8, 22, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[143913, 3230, 661, 16, 22, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[144577, 3248, 318, 10, 22, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[144898, 3260, 615, 14, 22, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[145516, 3276, 868, 22, 22, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[146387, 3300, 401, 10, 22, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[146791, 3312, 1483, 31, 22, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[148277, 3345, 886, 20, 22, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[149200, 3370, 30, 0, 155, "SearchTermsSection"],
+Cell[149233, 3372, 172, 3, 22, "SearchTerms",
+ CellID->176598889],
+Cell[149408, 3377, 234, 4, 22, "SearchTerms",
+ CellID->425196163],
+Cell[149645, 3383, 243, 4, 22, "SearchTerms",
+ CellID->786664411],
+Cell[149891, 3389, 213, 4, 22, "SearchTerms",
+ CellID->97206712],
+Cell[150107, 3395, 128, 2, 22, "SearchTerms",
+ CellID->166432079],
+Cell[150238, 3399, 130, 2, 22, "SearchTerms",
+ CellID->12139951],
+Cell[150371, 3403, 223, 4, 22, "SearchTerms",
+ CellID->422864036],
+Cell[150597, 3409, 221, 4, 22, "SearchTerms",
+ CellID->11603247],
+Cell[150821, 3415, 129, 2, 22, "SearchTerms",
+ CellID->104892081],
+Cell[150953, 3419, 117, 2, 22, "SearchTerms",
+ CellID->344480299],
+Cell[151073, 3423, 169, 3, 22, "SearchTerms",
+ CellID->146474033],
+Cell[151245, 3428, 213, 4, 22, "SearchTerms",
+ CellID->17485368],
+Cell[151461, 3434, 129, 2, 22, "SearchTerms",
+ CellID->686229409],
+Cell[151593, 3438, 181, 3, 22, "SearchTerms",
+ CellID->334748892],
+Cell[151777, 3443, 119, 2, 22, "SearchTerms",
+ CellID->38213807]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[151933, 3450, 31, 0, 141, "RelatedLinksSection"],
+Cell[151967, 3452, 243, 5, 22, "RelatedLinks",
+ CellID->674835308]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[152247, 3462, 25, 0, 141, "AuthorSection"],
+Cell[152275, 3464, 488, 13, 22, "Author"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

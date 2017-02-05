@@ -1,0 +1,2455 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[    106050,       2446]
+NotebookOptionsPosition[    100817,       2286]
+NotebookOutlinePosition[    102426,       2336]
+CellTagsIndexPosition[    102090,       2324]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Orbit of a Launched Satellite", "DemoTitle",
+ CellChangeTimes->{{3.572879302671172*^9, 3.5728793084882803`*^9}, 
+   3.574092505423541*^9}],
+
+Cell["", "InitializationSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"G", ",", " ", "e", ",", "d", ",", " ", "x2", ",", " ", "v2"}], 
+      "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"G", "=", 
+       RowBox[{"6.67", " ", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "11"}], ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"e", "=", 
+       RowBox[{
+        RowBox[{"x1", "  ", 
+         RowBox[{
+          RowBox[{"v1", "^", "2"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"G", "  ", "M"}], ")"}]}]}], "-", "1"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"d", "=", 
+       RowBox[{
+        RowBox[{"v1", "^", "2"}], " ", 
+        RowBox[{
+         RowBox[{"x1", "^", "2"}], "/", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"x1", "  ", 
+            RowBox[{"v1", "^", "2"}]}], "-", 
+           RowBox[{"G", "  ", "M"}]}], ")"}]}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"x2", "=", 
+       RowBox[{
+        RowBox[{"v1", "^", "2"}], 
+        RowBox[{
+         RowBox[{"x1", "^", "2"}], "/", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", "G", "  ", "M"}], "-", 
+           RowBox[{
+            RowBox[{"v1", "^", "2"}], "  ", "x1"}]}], ")"}]}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"v2", "=", 
+       RowBox[{"v1", "  ", 
+        RowBox[{"x1", "/", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"v1", "^", "2"}], " ", 
+           RowBox[{
+            RowBox[{"x1", "^", "2"}], "/", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", "G", "  ", "M"}], "-", 
+              RowBox[{
+               RowBox[{"v1", "^", "2"}], "  ", "x1"}]}], ")"}]}]}], 
+          ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Text", "@", 
+       RowBox[{"Pane", "[", 
+        RowBox[{"Column", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Row", "[", 
+            RowBox[{"{", 
+             RowBox[{"\"\<planet mass = \>\"", ",", 
+              RowBox[{"ScientificForm", "[", 
+               RowBox[{"M", ",", "3"}], "]"}], ",", "\"\< kg\>\""}], "}"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Row", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              SubscriptBox[
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<x\>\"", ",", "Italic"}], "]"}], "2"], ",", 
+              "\"\< = \>\"", ",", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"e", "<", "1"}], ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"x2", "/", "1000"}], "]"}], ",", 
+                "\"\<\[Infinity]\>\""}], "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"e", "<", "1"}], ",", "\"\< km\>\""}], "]"}]}], 
+             "\[IndentingNewLine]", "}"}], "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Row", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              SubscriptBox[
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<v\>\"", ",", "Italic"}], "]"}], "2"], ",", 
+              "\"\< = \>\"", ",", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"e", "<", "1"}], ",", 
+                RowBox[{"Row", "[", 
+                 RowBox[{"{", 
+                  RowBox[{"v2", ",", "\"\< m/s\>\""}], "}"}], "]"}], ",", 
+                "\"\<N/A\>\""}], "]"}]}], "}"}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Row", "[", 
+            RowBox[{"{", 
+             RowBox[{"\"\<eccentricity = \>\"", ",", 
+              RowBox[{"Abs", "[", "e", "]"}]}], "}"}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Row", "[", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"Show", "[", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"PolarPlot", "[", 
+                 RowBox[{
+                  RowBox[{"e", "  ", 
+                   RowBox[{"d", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"1", "+", 
+                    RowBox[{"e", "  ", 
+                    RowBox[{"Cos", "[", "\[Theta]", "]"}]}]}], ")"}]}]}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"\[Theta]", ",", "0", ",", "\[IndentingNewLine]", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Abs", "[", "e", "]"}], ">", "1"}], ",", 
+                    RowBox[{
+                    RowBox[{"ArcCos", "[", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", "e"}], ")"}], "]"}], "-", 
+                    RowBox[{"Pi", "/", "1000"}]}], ",", 
+                    RowBox[{"2", "Pi"}]}], "]"}]}], "\[IndentingNewLine]", 
+                   "}"}], ",", 
+                  RowBox[{"PlotRange", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "1200000"}], ",", "1200000"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "1200000"}], ",", "1200000"}], "}"}]}], 
+                    "}"}]}], ",", 
+                  RowBox[{"ImageSize", "\[Rule]", "250"}], ",", 
+                  RowBox[{"PlotStyle", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{"Red", ",", 
+                    RowBox[{"AbsoluteDashing", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"5", ",", "6", ",", "12", ",", "6"}], "}"}], 
+                    "]"}], ",", "Thick"}], "}"}]}], ",", 
+                  RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+                  RowBox[{"Background", "\[Rule]", " ", "Black"}]}], "]"}], 
+                ",", "\[IndentingNewLine]", 
+                RowBox[{"PolarPlot", "[", 
+                 RowBox[{
+                  RowBox[{"e", "  ", 
+                   RowBox[{"d", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"1", "+", 
+                    RowBox[{"e", "  ", 
+                    RowBox[{"Cos", "[", "\[Theta]", "]"}]}]}], ")"}]}]}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"\[Theta]", ",", "\[IndentingNewLine]", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Abs", "[", "e", "]"}], ">", "1"}], ",", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"ArcCos", "[", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", "e"}], ")"}], "]"}]}], "+", 
+                    RowBox[{"Pi", "/", "1000"}]}], ",", "0"}], "]"}], 
+                    "\[IndentingNewLine]", ",", "0.001"}], 
+                   "\[IndentingNewLine]", "}"}], ",", 
+                  RowBox[{"PlotRange", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "1000000"}], ",", "1000000"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "1000000"}], ",", "1000000"}], "}"}]}], 
+                    "}"}]}], ",", 
+                  RowBox[{"PlotStyle", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{"Red", ",", 
+                    RowBox[{"AbsoluteDashing", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"5", ",", "6", ",", "12", ",", "6"}], "}"}], 
+                    "]"}], ",", "Thick"}], "}"}]}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"ParametricPlot", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"d", ",", "u"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"u", ",", 
+                    RowBox[{"-", "1300000"}], ",", "1300000"}], "}"}], ",", 
+                  RowBox[{"PlotStyle", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{"Thick", ",", "Blue"}], "}"}]}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Graphics", "[", 
+                 RowBox[{"{", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"Yellow", ",", "Thick", ",", 
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"x1", ",", "0"}], "}"}]}], "}"}], "]"}]}], "}"}], 
+                   ",", "\[IndentingNewLine]", 
+                   RowBox[{"{", 
+                    RowBox[{"Yellow", ",", "Thick", ",", 
+                    RowBox[{"Arrowheads", "[", "0.04", "]"}], ",", 
+                    RowBox[{"Arrow", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"x1", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"x1", ",", 
+                    RowBox[{"12", "v1"}]}], "}"}]}], "}"}], "]"}]}], "}"}], 
+                   ",", "\[IndentingNewLine]", 
+                   RowBox[{"{", 
+                    RowBox[{"Yellow", ",", 
+                    RowBox[{"Text", "[", 
+                    RowBox[{
+                    SubscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<x\>\"", ",", "Italic"}], "]"}], "1"], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"x1", "/", "2"}], ",", 
+                    RowBox[{"-", "50000"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"{", 
+                    RowBox[{"Yellow", ",", 
+                    RowBox[{"Text", "[", 
+                    RowBox[{
+                    SubscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<v\>\"", ",", "Italic"}], "]"}], "1"], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"x1", "+", "80000"}], ",", 
+                    RowBox[{"4", "v1"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Abs", "[", "e", "]"}], "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Lighter", "[", "Green", "]"}], ",", "Thick", ",", 
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "x2"}], ",", "0"}], "}"}]}], "}"}], "]"}]}], 
+                    "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Abs", "[", "e", "]"}], "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Lighter", "[", "Green", "]"}], ",", "Thick", ",", 
+                    RowBox[{"Arrowheads", "[", "0.04", "]"}], ",", 
+                    RowBox[{"Arrow", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "x2"}], ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "x2"}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "12"}], "v2"}]}], "}"}]}], "}"}], "]"}]}], 
+                    "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Abs", "[", "e", "]"}], "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Lighter", "[", "Green", "]"}], ",", 
+                    RowBox[{"Text", "[", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    SubscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<x\>\"", ",", "Italic"}], "]"}], "2"], "]"}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "x2"}], "/", "2.4"}], ",", "50000"}], 
+                    "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Abs", "[", "e", "]"}], "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Lighter", "[", "Green", "]"}], ",", 
+                    RowBox[{"Text", "[", 
+                    RowBox[{
+                    SubscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<v\>\"", ",", "Italic"}], "]"}], "2"], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "x2"}], "-", "60000"}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "4"}], "v2"}]}], "}"}]}], "]"}]}], "}"}]}], 
+                    "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Lighter", "[", 
+                    RowBox[{"Blue", ",", "0.3"}], "]"}], ",", 
+                    RowBox[{"Disk", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", "40000"}], "]"}]}], 
+                    "}"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Lighter", "[", 
+                    RowBox[{"Blue", ",", "0.3"}], "]"}], ",", 
+                    RowBox[{"Text", "[", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<directrix\>\"", ",", "14"}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"d", ",", 
+                    RowBox[{"-", "1150000"}]}], "}"}]}], "]"}]}], "}"}]}], 
+                  "\[IndentingNewLine]", "}"}], "]"}], ",", 
+                RowBox[{"ImageSize", "\[Rule]", "300"}]}], "]"}], 
+              "\[IndentingNewLine]", ",", "\"\<   \>\"", ",", 
+              "\[IndentingNewLine]", "\[IndentingNewLine]", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Column", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Graphics3D", "[", 
+                  RowBox[{
+                   RowBox[{"{", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+                    RowBox[{"(*", "Plane", "*)"}], "\[IndentingNewLine]", 
+                    RowBox[{
+                    "Which", "[", "\[IndentingNewLine]", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"e", "<", "1.118043398"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"Rotate", "[", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"Polygon", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "5"}], ",", 
+                    RowBox[{"-", "5"}], ",", "0.5"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "5"}], ",", "5", ",", "0.5"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"5", ",", "5", ",", "0.5"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"5", ",", 
+                    RowBox[{"-", "5"}], ",", "0.5"}], "}"}]}], "}"}], "]"}], 
+                    ",", 
+                    RowBox[{"ArcSin", "[", 
+                    RowBox[{"0.894419664", "e"}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "0.25"}], ",", "0", ",", "0.5"}], "}"}]}], 
+                    "]"}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"(*", "Cone", "*)"}], "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Opacity", "[", "0.5", "]"}], ",", 
+                    RowBox[{"Cone", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+                    "0.5"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Opacity", "[", "0.5", "]"}], ",", 
+                    RowBox[{"Cone", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", "2"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+                    "0.5"}], "]"}]}], "}"}]}], "}"}]}], "\[IndentingNewLine]",
+                     "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+                    RowBox[{"1.118043398", "<", "e", "<", "10"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"Scale", "[", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Opacity", "[", "0.5", "]"}], ",", 
+                    RowBox[{"Cone", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+                    "0.5"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Opacity", "[", "0.5", "]"}], ",", 
+                    RowBox[{"Cone", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", "2"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+                    "0.5"}], "]"}]}], "}"}]}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{
+                    RowBox[{"e", "^", "2"}], "-", "1"}], "]"}], "+", "0.5"}], 
+                    ",", 
+                    RowBox[{
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{
+                    RowBox[{"e", "^", "2"}], "-", "1"}], "]"}], "+", "0.5"}], 
+                    ",", "1"}], "}"}]}], "\[IndentingNewLine]", "]"}], "}"}], 
+                    ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"Polygon", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "0.25"}], ",", 
+                    RowBox[{"-", "5"}], ",", 
+                    RowBox[{"-", "5"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "0.25"}], ",", 
+                    RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "0.25"}], ",", "5", ",", "5"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "0.25"}], ",", "5", ",", 
+                    RowBox[{"-", "5"}]}], "}"}]}], "}"}], "]"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "\[IndentingNewLine]", 
+                    "]"}], "\[IndentingNewLine]", "}"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"PlotRange", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "2"}], "}"}]}], "}"}]}], ",", 
+                   RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"150", ",", "150"}], "}"}]}], ",", " ", 
+                   RowBox[{"SphericalRegion", "\[Rule]", "True"}], ",", " ", 
+                   RowBox[{"Boxed", "\[Rule]", "False"}]}], 
+                  "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Show", "[", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"Plot", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"Abs", "[", 
+                    RowBox[{
+                    RowBox[{"x1", "  ", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"x", " ", "1000"}], ")"}], "^", "2"}], ")"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{"G", "  ", "M"}], ")"}]}]}], "-", "1"}], "]"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"x", ",", "0", ",", "54"}], "}"}], ",", 
+                    RowBox[{"ImageSize", "\[Rule]", "200"}], ",", 
+                    RowBox[{"PlotRange", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "1.4"}], ",", "8"}], "}"}]}], ",", 
+                    RowBox[{"PlotLabel", "\[Rule]", 
+                    RowBox[{"Column", "[", 
+                    RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<eccentricity\>\"", ",", "14"}], "]"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"Which", "[", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"e", "\[LessEqual]", 
+                    RowBox[{"-", "0.05"}]}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "\"\<\!\(\*SubscriptBox[\(KE\), \(o\)]\) < \>\"", ",", 
+                    RowBox[{"TraditionalForm", "[", 
+                    RowBox[{
+                    RowBox[{"1", "/", "2"}], " ", 
+                    RowBox[{
+                    "Abs", "[", "\"\<\!\(\*SubscriptBox[\(PE\), \(o\)]\)\>\"",
+                     "]"}]}], "]"}]}], "}"}], "]"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"Abs", "[", "e", "]"}], "<", "0.05"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "\"\<\!\(\*SubscriptBox[\(KE\), \(o\)]\) = \>\"", ",", 
+                    " ", 
+                    RowBox[{"TraditionalForm", "[", 
+                    RowBox[{
+                    RowBox[{"1", "/", "2"}], 
+                    RowBox[{
+                    "Abs", "[", "\"\<\!\(\*SubscriptBox[\(PE\), \(o\)]\)\>\"",
+                     "]"}]}], "]"}]}], "}"}], "]"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"e", "\[GreaterEqual]", "0.05"}], ")"}], "&&", 
+                    RowBox[{"(", 
+                    RowBox[{"e", "<", "1"}], ")"}]}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"TraditionalForm", "[", 
+                    RowBox[{
+                    RowBox[{"1", "/", "2"}], 
+                    RowBox[{
+                    "Abs", "[", "\"\<\!\(\*SubscriptBox[\(PE\), \(o\)]\)\>\"",
+                     "]"}]}], "]"}], ",", 
+                    "\"\< < \!\(\*SubscriptBox[\(KE\), \(o\)]\) < \>\"", ",", 
+                    RowBox[{"TraditionalForm", "[", 
+                    RowBox[{
+                    "Abs", "[", "\"\<\!\(\*SubscriptBox[\(PE\), \(o\)]\)\>\"",
+                     "]"}], "]"}]}], "}"}], "]"}], "\[IndentingNewLine]", ",",
+                     "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"Abs", "[", 
+                    RowBox[{"e", "-", "1.05"}], "]"}], "\[LessEqual]", 
+                    "0.05"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "\"\<\!\(\*SubscriptBox[\(KE\), \(o\)]\) = \>\"", ",", 
+                    RowBox[{"TraditionalForm", "[", 
+                    RowBox[{
+                    "Abs", "[", "\"\<\!\(\*SubscriptBox[\(PE\), \(o\)]\)\>\"",
+                     "]"}], "]"}]}], "}"}], "]"}], "\[IndentingNewLine]", ",", 
+                    RowBox[{"e", ">", "1.05"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "\"\<\!\(\*SubscriptBox[\(KE\), \(o\)]\) > \>\"", ",", 
+                    RowBox[{"TraditionalForm", "[", 
+                    RowBox[{
+                    "Abs", "[", "\"\<\!\(\*SubscriptBox[\(PE\), \(o\)]\)\>\"",
+                     "]"}], "]"}]}], "}"}], "]"}]}], "\[IndentingNewLine]", 
+                    "]"}]}], "\[IndentingNewLine]", "}"}], "]"}]}], ",", 
+                    RowBox[{"AxesLabel", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    SubscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<v\>\"", ",", "Italic", ",", "14"}], "]"}], 
+                    "1"], ",", "\"\< (km/s)\>\""}], "}"}], "]"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "Italic", ",", "14"}], "]"}]}], 
+                    "}"}]}], ",", 
+                    RowBox[{"PlotStyle", "\[Rule]", 
+                    RowBox[{"Darker", "[", "Green", "]"}]}]}], "]"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"Graphics", "[", 
+                    RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"Red", ",", 
+                    RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+                    RowBox[{"Point", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"v1", "/", "1000"}], ",", 
+                    RowBox[{"Abs", "[", "e", "]"}]}], "}"}], "]"}]}], "}"}], 
+                    ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"Purple", ",", 
+                    RowBox[{"Arrowheads", "[", "0.03", "]"}], ",", 
+                    RowBox[{"Arrow", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"v1", "/", "1000"}], ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"v1", "/", "1000"}], ",", 
+                    RowBox[{"Abs", "[", "e", "]"}]}], "}"}]}], "}"}], "]"}]}],
+                     "}"}]}], "\[IndentingNewLine]", "}"}], "]"}]}], 
+                  "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}]}], 
+                "}"}], "]"}]}], "\[IndentingNewLine]", "}"}], "]"}]}], 
+          "\[IndentingNewLine]", "}"}], "]"}], "\[IndentingNewLine]", 
+        "]"}]}]}]}], "]"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"M", ",", 
+       RowBox[{"6", "  ", 
+        RowBox[{"10", "^", "24.0"}]}], ",", "\"\<mass of planet\>\""}], "}"}],
+      ",", 
+     RowBox[{"2", "  ", 
+      RowBox[{"10", "^", "24.0"}]}], ",", 
+     RowBox[{"16", "  ", 
+      RowBox[{"10", "^", "24.0"}]}], ",", 
+     RowBox[{"5", "^", "24.0"}], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "600000", ",", 
+       RowBox[{"Row", "[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<initial altitude \>\"", ",", " ", 
+          RowBox[{"Subscript", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<x\>\"", ",", "Italic"}], "]"}], ",", "\"\<1\>\""}], 
+           "]"}]}], "}"}], "]"}]}], "}"}], ",", "150000", ",", "1000000", ",",
+      "10000", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"v1", ",", "19000", ",", 
+       RowBox[{"Row", "[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<launch speed \>\"", ",", " ", 
+          RowBox[{"Subscript", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<v\>\"", ",", "Italic"}], "]"}], ",", "\"\<1\>\""}], 
+           "]"}]}], "}"}], "]"}]}], "}"}], ",", "5000", ",", "53800", ",", 
+     "800", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{
+  3.572879332942998*^9, 3.572880819199029*^9, 3.5729616231351557`*^9, {
+   3.57400153113138*^9, 3.57400156972838*^9}, {3.57400189815738*^9, 
+   3.57400190375838*^9}, {3.5740021513032074`*^9, 3.574002362872362*^9}, {
+   3.574002393821457*^9, 3.5740023946365385`*^9}, {3.574004223447401*^9, 
+   3.5740042386499214`*^9}, {3.574020281334882*^9, 3.574020411956821*^9}, {
+   3.574020658134197*^9, 3.574021083070425*^9}, {3.574021119444077*^9, 
+   3.574021222600399*^9}, {3.5740215994539967`*^9, 3.5740215998679543`*^9}, {
+   3.574084846710726*^9, 3.5740851415895433`*^9}, {3.574085189012054*^9, 
+   3.574085192077362*^9}, {3.57408630397731*^9, 3.5740864165737543`*^9}, {
+   3.574086458735004*^9, 3.57408648253642*^9}, {3.574091127032243*^9, 
+   3.574091148213397*^9}, {3.5740911787764874`*^9, 3.574091179104827*^9}, {
+   3.57409207089963*^9, 3.574092113505431*^9}, {3.574092147179718*^9, 
+   3.574092188456052*^9}, {3.574092227044072*^9, 3.57409229940598*^9}, {
+   3.574092333834875*^9, 3.574092423023522*^9}, {3.57409245405468*^9, 
+   3.574092465842342*^9}, {3.5741762683901463`*^9, 3.5741763666181464`*^9}, {
+   3.5741793727393017`*^9, 3.574179457017729*^9}, {3.574449532141939*^9, 
+   3.5744495814969397`*^9}, {3.5744496416719394`*^9, 
+   3.5744496882819395`*^9}, {3.5744498393899393`*^9, 
+   3.5744498909729395`*^9}, {3.5744499641789393`*^9, 
+   3.5744499665549393`*^9}, {3.5744500011289396`*^9, 
+   3.5744500278909397`*^9}, {3.5744500750609393`*^9, 
+   3.5744500832639394`*^9}, {3.5745153476292*^9, 3.5745155083288*^9}, {
+   3.5745155671577997`*^9, 3.5745155678498*^9}, 3.577733156599152*^9, {
+   3.577733216315152*^9, 3.577733216638152*^9}, {3.5777332903111525`*^9, 
+   3.577733290789152*^9}, {3.577801593859742*^9, 3.577801613068663*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`M$$ = 6.*^24, $CellContext`v1$$ = 
+    19000, $CellContext`x1$$ = 600000, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`M$$], 6.*^24, "mass of planet"}, 2.*^24, 1.6*^25, 
+      5.960464477539062*^16}, {{
+       Hold[$CellContext`x1$$], 600000, 
+       Row[{"initial altitude ", 
+         Subscript[
+          Style["x", Italic], "1"]}]}, 150000, 1000000, 10000}, {{
+       Hold[$CellContext`v1$$], 19000, 
+       Row[{"launch speed ", 
+         Subscript[
+          Style["v", Italic], "1"]}]}, 5000, 53800, 800}}, Typeset`size$$ = {
+    509., {190., 197.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`M$3955$$ = 
+    0, $CellContext`x1$3956$$ = 0, $CellContext`v1$3957$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`M$$ = 6.*^24, $CellContext`v1$$ = 
+        19000, $CellContext`x1$$ = 600000}, "ControllerVariables" :> {
+        Hold[$CellContext`M$$, $CellContext`M$3955$$, 0], 
+        Hold[$CellContext`x1$$, $CellContext`x1$3956$$, 0], 
+        Hold[$CellContext`v1$$, $CellContext`v1$3957$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`G$, $CellContext`e$, $CellContext`d$, \
+$CellContext`x2$, $CellContext`v2$}, $CellContext`G$ = 
+         6.67 10^(-11); $CellContext`e$ = $CellContext`x1$$ \
+($CellContext`v1$$^2/($CellContext`G$ $CellContext`M$$)) - 
+          1; $CellContext`d$ = $CellContext`v1$$^2 \
+($CellContext`x1$$^2/($CellContext`x1$$ $CellContext`v1$$^2 - $CellContext`G$ \
+$CellContext`M$$)); $CellContext`x2$ = $CellContext`v1$$^2 \
+($CellContext`x1$$^2/(
+           2 $CellContext`G$ $CellContext`M$$ - $CellContext`v1$$^2 \
+$CellContext`x1$$)); $CellContext`v2$ = $CellContext`v1$$ \
+($CellContext`x1$$/($CellContext`v1$$^2 ($CellContext`x1$$^2/(
+            2 $CellContext`G$ $CellContext`M$$ - $CellContext`v1$$^2 \
+$CellContext`x1$$)))); Text[
+          Pane[
+           Column[{
+             Row[{"planet mass = ", 
+               ScientificForm[$CellContext`M$$, 3], " kg"}], 
+             Row[{
+               Subscript[
+                Style["x", Italic], 2], " = ", 
+               If[$CellContext`e$ < 1, 
+                Style[$CellContext`x2$/1000], "\[Infinity]"], 
+               If[$CellContext`e$ < 1, " km"]}], 
+             Row[{
+               Subscript[
+                Style["v", Italic], 2], " = ", 
+               If[$CellContext`e$ < 1, 
+                Row[{$CellContext`v2$, " m/s"}], "N/A"]}], 
+             Row[{"eccentricity = ", 
+               Abs[$CellContext`e$]}], 
+             Row[{
+               Show[
+                
+                PolarPlot[$CellContext`e$ ($CellContext`d$/(
+                  1 + $CellContext`e$ 
+                   Cos[$CellContext`\[Theta]])), {$CellContext`\[Theta], 0, 
+                  If[
+                  Abs[$CellContext`e$] > 1, ArcCos[(-1)/$CellContext`e$] - Pi/
+                   1000, 2 Pi]}, 
+                 PlotRange -> {{-1200000, 1200000}, {-1200000, 1200000}}, 
+                 ImageSize -> 250, PlotStyle -> {Red, 
+                   AbsoluteDashing[{5, 6, 12, 6}], Thick}, Axes -> False, 
+                 Background -> Black], 
+                
+                PolarPlot[$CellContext`e$ ($CellContext`d$/(
+                  1 + $CellContext`e$ 
+                   Cos[$CellContext`\[Theta]])), {$CellContext`\[Theta], 
+                  If[
+                  Abs[$CellContext`e$] > 1, -ArcCos[(-1)/$CellContext`e$] + 
+                   Pi/1000, 0], 0.001}, 
+                 PlotRange -> {{-1000000, 1000000}, {-1000000, 1000000}}, 
+                 PlotStyle -> {Red, 
+                   AbsoluteDashing[{5, 6, 12, 6}], Thick}], 
+                
+                ParametricPlot[{$CellContext`d$, $CellContext`u}, \
+{$CellContext`u, -1300000, 1300000}, PlotStyle -> {Thick, Blue}], 
+                Graphics[{{Yellow, Thick, 
+                   Line[{{0, 0}, {$CellContext`x1$$, 0}}]}, {Yellow, Thick, 
+                   Arrowheads[0.04], 
+                   
+                   Arrow[{{$CellContext`x1$$, 0}, {$CellContext`x1$$, 
+                    12 $CellContext`v1$$}}]}, {Yellow, 
+                   Text[
+                    Subscript[
+                    Style["x", Italic], 1], {$CellContext`x1$$/2, -50000}]}, {
+                  Yellow, 
+                   Text[
+                    Subscript[
+                    Style["v", Italic], 1], {$CellContext`x1$$ + 80000, 
+                    4 $CellContext`v1$$}]}, 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], Thick, 
+                    Line[{{0, 0}, {-$CellContext`x2$, 0}}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], Thick, 
+                    Arrowheads[0.04], 
+                    
+                    Arrow[{{-$CellContext`x2$, 
+                    0}, {-$CellContext`x2$, (-12) $CellContext`v2$}}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], 
+                    Text[
+                    Style[
+                    Subscript[
+                    Style["x", Italic], 2]], {(-$CellContext`x2$)/2.4, 
+                    50000}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], 
+                    Text[
+                    Subscript[
+                    Style["v", Italic], 2], {-$CellContext`x2$ - 
+                    60000, (-4) $CellContext`v2$}]}], {
+                   Lighter[Blue, 0.3], 
+                   Disk[{0, 0}, 40000]}, {
+                   Lighter[Blue, 0.3], 
+                   Text[
+                    Style["directrix", 14], {$CellContext`d$, -1150000}]}}], 
+                ImageSize -> 300], "   ", 
+               Column[{
+                 Graphics3D[{
+                   Which[$CellContext`e$ < 1.118043398, {{
+                    Rotate[
+                    
+                    Polygon[{{-5, -5, 0.5}, {-5, 5, 0.5}, {5, 5, 0.5}, {
+                    5, -5, 0.5}}], 
+                    ArcSin[0.894419664 $CellContext`e$], {0, 1, 
+                    0}, {-0.25, 0, 0.5}]}, {{
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 0}, {0, 0, 1}}, 0.5]}, {
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 2}, {0, 0, 1}}, 0.5]}}}, 
+                    1.118043398 < $CellContext`e$ < 10, {{
+                    Scale[{{
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 0}, {0, 0, 1}}, 0.5]}, {
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 2}, {0, 0, 1}}, 0.5]}}, {
+                    Sqrt[$CellContext`e$^2 - 1] + 0.5, 
+                    Sqrt[$CellContext`e$^2 - 1] + 0.5, 1}]}, {
+                    
+                    Polygon[{{-0.25, -5, -5}, {-0.25, -5, 5}, {-0.25, 5, 
+                    5}, {-0.25, 5, -5}}]}}]}, 
+                  PlotRange -> {{-1, 1}, {-1, 1}, {0, 2}}, 
+                  ImageSize -> {150, 150}, SphericalRegion -> True, Boxed -> 
+                  False], 
+                 Show[
+                  Plot[{
+                    
+                    Abs[$CellContext`x1$$ (($CellContext`x 
+                    1000)^2/($CellContext`G$ $CellContext`M$$)) - 
+                    1]}, {$CellContext`x, 0, 54}, ImageSize -> 200, 
+                   PlotRange -> {-1.4, 8}, PlotLabel -> Column[{
+                    Style["eccentricity", 14], 
+                    Which[$CellContext`e$ <= -0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) < ", 
+                    
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    Abs[$CellContext`e$] < 0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) = ", 
+                    
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    And[$CellContext`e$ >= 0.05, $CellContext`e$ < 1], 
+                    Row[{
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]], 
+                    " < \!\(\*SubscriptBox[\(KE\), \(o\)]\) < ", 
+                    TraditionalForm[
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    Abs[$CellContext`e$ - 1.05] <= 0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) = ", 
+                    TraditionalForm[
+                    Abs[
+                    "\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], \
+$CellContext`e$ > 1.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) > ", 
+                    TraditionalForm[
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}]]}], 
+                   AxesLabel -> {
+                    Row[{
+                    Subscript[
+                    Style["v", Italic, 14], 1], " (km/s)"}], 
+                    Style["e", Italic, 14]}, PlotStyle -> Darker[Green]], 
+                  Graphics[{{Red, 
+                    PointSize[Large], 
+                    Point[{$CellContext`v1$$/1000, 
+                    Abs[$CellContext`e$]}]}, {Purple, 
+                    Arrowheads[0.03], 
+                    
+                    Arrow[{{$CellContext`v1$$/1000, 0}, {$CellContext`v1$$/
+                    1000, 
+                    Abs[$CellContext`e$]}}]}}]]}]}]}]]]], 
+      "Specifications" :> {{{$CellContext`M$$, 6.*^24, "mass of planet"}, 
+         2.*^24, 1.6*^25, 5.960464477539062*^16, Appearance -> 
+         "Labeled"}, {{$CellContext`x1$$, 600000, 
+          Row[{"initial altitude ", 
+            Subscript[
+             Style["x", Italic], "1"]}]}, 150000, 1000000, 10000, Appearance -> 
+         "Labeled"}, {{$CellContext`v1$$, 19000, 
+          Row[{"launch speed ", 
+            Subscript[
+             Style["v", Italic], "1"]}]}, 5000, 53800, 800, Appearance -> 
+         "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{558., {264., 269.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.577805094541758*^9, 3.577805277683958*^9, 
+  3.5778054646813583`*^9, 3.5778055275025578`*^9},
+ CellID->912056675]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell[TextData[{
+ "Kepler observed that the path of a satellite in an orbit around a heavy \
+mass traces out an ellipse. More generally, an orbit in the absence of a \
+third body is always a conic section (i.e., an ellipse, parabola, or \
+hyperbola). For a parabolic orbit, the eccentricity equals 1, for any value \
+of the initial launch speed. This speed along with the planet's mass, the \
+initial altitude and the gravitational constant, ",
+ Cell[BoxData[
+  FormBox["G", TraditionalForm]], "InlineMath"],
+ ", determine the eccentricity of the conic section traced by the satellite's \
+orbit. If the orbit is closed, then the speed is always greatest at the \
+smallest distance from the planet and smallest at the greatest distance from \
+the planet. This is derived from conservation of angular momentum."
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.572879362729911*^9, 3.572963974128956*^9, {3.5740925258313932`*^9, 
+   3.574092757544675*^9}, {3.5740927897703257`*^9, 3.574092849327647*^9}, {
+   3.5740943116326923`*^9, 3.574094350871663*^9}, {3.5740943834496393`*^9, 
+   3.574094400985742*^9}, {3.574094665224325*^9, 3.574094735138726*^9}, {
+   3.5777336468271523`*^9, 3.5777336468331523`*^9}, {3.5777340001461525`*^9, 
+   3.577734000151152*^9}, {3.577734075743152*^9, 3.577734079301152*^9}}],
+
+Cell["\<\
+An image of a double cone and its intersection with a plane traces out the \
+corresponding conic for the satellite's trajectory.\
+\>", "ManipulateCaption",
+ CellChangeTimes->{{3.5777340051291523`*^9, 3.577734046727152*^9}},
+ CellID->521013948]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`M$$ = 6.*^24, $CellContext`v1$$ = 
+    19000, $CellContext`x1$$ = 600000, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`M$$], 6.*^24, "mass of planet"}, 2.*^24, 1.6*^25, 
+      5.960464477539062*^16}, {{
+       Hold[$CellContext`x1$$], 600000, 
+       Row[{"initial altitude ", 
+         Subscript[
+          Style["x", Italic], "1"]}]}, 150000, 1000000, 10000}, {{
+       Hold[$CellContext`v1$$], 19000, 
+       Row[{"launch speed ", 
+         Subscript[
+          Style["v", Italic], "1"]}]}, 5000, 53800, 800}}, Typeset`size$$ = {
+    509., {190., 197.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`M$6253$$ = 
+    0, $CellContext`x1$6254$$ = 0, $CellContext`v1$6255$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`M$$ = 6.*^24, $CellContext`v1$$ = 
+        19000, $CellContext`x1$$ = 600000}, "ControllerVariables" :> {
+        Hold[$CellContext`M$$, $CellContext`M$6253$$, 0], 
+        Hold[$CellContext`x1$$, $CellContext`x1$6254$$, 0], 
+        Hold[$CellContext`v1$$, $CellContext`v1$6255$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`G$, $CellContext`e$, $CellContext`d$, \
+$CellContext`x2$, $CellContext`v2$}, $CellContext`G$ = 
+         6.67 10^(-11); $CellContext`e$ = $CellContext`x1$$ \
+($CellContext`v1$$^2/($CellContext`G$ $CellContext`M$$)) - 
+          1; $CellContext`d$ = $CellContext`v1$$^2 \
+($CellContext`x1$$^2/($CellContext`x1$$ $CellContext`v1$$^2 - $CellContext`G$ \
+$CellContext`M$$)); $CellContext`x2$ = $CellContext`v1$$^2 \
+($CellContext`x1$$^2/((
+             2 $CellContext`G$) $CellContext`M$$ - $CellContext`v1$$^2 \
+$CellContext`x1$$)); $CellContext`v2$ = $CellContext`v1$$ \
+($CellContext`x1$$/($CellContext`v1$$^2 ($CellContext`x1$$^2/((
+              2 $CellContext`G$) $CellContext`M$$ - $CellContext`v1$$^2 \
+$CellContext`x1$$)))); Text[
+          Pane[
+           Column[{
+             Row[{"planet mass = ", 
+               ScientificForm[$CellContext`M$$, 3], " kg"}], 
+             Row[{
+               Subscript[
+                Style["x", Italic], 2], " = ", 
+               If[$CellContext`e$ < 1, 
+                Style[$CellContext`x2$/1000], "\[Infinity]"], 
+               If[$CellContext`e$ < 1, " km"]}], 
+             Row[{
+               Subscript[
+                Style["v", Italic], 2], " = ", 
+               If[$CellContext`e$ < 1, 
+                Row[{$CellContext`v2$, " m/s"}], "N/A"]}], 
+             Row[{"eccentricity = ", 
+               Abs[$CellContext`e$]}], 
+             Row[{
+               Show[
+                
+                PolarPlot[$CellContext`e$ ($CellContext`d$/(
+                  1 + $CellContext`e$ 
+                   Cos[$CellContext`\[Theta]])), {$CellContext`\[Theta], 0, 
+                  If[
+                  Abs[$CellContext`e$] > 1, ArcCos[(-1)/$CellContext`e$] - Pi/
+                   1000, 2 Pi]}, 
+                 PlotRange -> {{-1200000, 1200000}, {-1200000, 1200000}}, 
+                 ImageSize -> 250, PlotStyle -> {Red, 
+                   AbsoluteDashing[{5, 6, 12, 6}], Thick}, Axes -> False, 
+                 Background -> Black], 
+                
+                PolarPlot[$CellContext`e$ ($CellContext`d$/(
+                  1 + $CellContext`e$ 
+                   Cos[$CellContext`\[Theta]])), {$CellContext`\[Theta], 
+                  If[
+                  Abs[$CellContext`e$] > 1, -ArcCos[(-1)/$CellContext`e$] + 
+                   Pi/1000, 0], 0.001}, 
+                 PlotRange -> {{-1000000, 1000000}, {-1000000, 1000000}}, 
+                 PlotStyle -> {Red, 
+                   AbsoluteDashing[{5, 6, 12, 6}], Thick}], 
+                
+                ParametricPlot[{$CellContext`d$, $CellContext`u}, \
+{$CellContext`u, -1300000, 1300000}, PlotStyle -> {Thick, Blue}], 
+                Graphics[{{Yellow, Thick, 
+                   Line[{{0, 0}, {$CellContext`x1$$, 0}}]}, {Yellow, Thick, 
+                   Arrowheads[0.04], 
+                   
+                   Arrow[{{$CellContext`x1$$, 0}, {$CellContext`x1$$, 
+                    12 $CellContext`v1$$}}]}, {Yellow, 
+                   Text[
+                    Subscript[
+                    Style["x", Italic], 1], {$CellContext`x1$$/2, -50000}]}, {
+                  Yellow, 
+                   Text[
+                    Subscript[
+                    Style["v", Italic], 1], {$CellContext`x1$$ + 80000, 
+                    4 $CellContext`v1$$}]}, 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], Thick, 
+                    Line[{{0, 0}, {-$CellContext`x2$, 0}}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], Thick, 
+                    Arrowheads[0.04], 
+                    
+                    Arrow[{{-$CellContext`x2$, 
+                    0}, {-$CellContext`x2$, (-12) $CellContext`v2$}}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], 
+                    Text[
+                    Style[
+                    Subscript[
+                    Style["x", Italic], 2]], {(-$CellContext`x2$)/2.4, 
+                    50000}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], 
+                    Text[
+                    Subscript[
+                    Style["v", Italic], 2], {-$CellContext`x2$ - 
+                    60000, (-4) $CellContext`v2$}]}], {
+                   Lighter[Blue, 0.3], 
+                   Disk[{0, 0}, 40000]}, {
+                   Lighter[Blue, 0.3], 
+                   Text[
+                    Style["directrix", 14], {$CellContext`d$, -1150000}]}}], 
+                ImageSize -> 300], "   ", 
+               Column[{
+                 Graphics3D[{
+                   Which[$CellContext`e$ < 1.118043398, {{
+                    Rotate[
+                    
+                    Polygon[{{-5, -5, 0.5}, {-5, 5, 0.5}, {5, 5, 0.5}, {
+                    5, -5, 0.5}}], 
+                    ArcSin[0.894419664 $CellContext`e$], {0, 1, 
+                    0}, {-0.25, 0, 0.5}]}, {{
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 0}, {0, 0, 1}}, 0.5]}, {
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 2}, {0, 0, 1}}, 0.5]}}}, 
+                    1.118043398 < $CellContext`e$ < 10, {{
+                    Scale[{{
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 0}, {0, 0, 1}}, 0.5]}, {
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 2}, {0, 0, 1}}, 0.5]}}, {
+                    Sqrt[$CellContext`e$^2 - 1] + 0.5, 
+                    Sqrt[$CellContext`e$^2 - 1] + 0.5, 1}]}, {
+                    
+                    Polygon[{{-0.25, -5, -5}, {-0.25, -5, 5}, {-0.25, 5, 
+                    5}, {-0.25, 5, -5}}]}}]}, 
+                  PlotRange -> {{-1, 1}, {-1, 1}, {0, 2}}, 
+                  ImageSize -> {150, 150}, SphericalRegion -> True, Boxed -> 
+                  False], 
+                 Show[
+                  Plot[{
+                    
+                    Abs[$CellContext`x1$$ (($CellContext`x 
+                    1000)^2/($CellContext`G$ $CellContext`M$$)) - 
+                    1]}, {$CellContext`x, 0, 54}, ImageSize -> 200, 
+                   PlotRange -> {-1.4, 8}, PlotLabel -> Column[{
+                    Style["eccentricity", 14], 
+                    Which[$CellContext`e$ <= -0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) < ", 
+                    
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    Abs[$CellContext`e$] < 0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) = ", 
+                    
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    And[$CellContext`e$ >= 0.05, $CellContext`e$ < 1], 
+                    Row[{
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]], 
+                    " < \!\(\*SubscriptBox[\(KE\), \(o\)]\) < ", 
+                    TraditionalForm[
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    Abs[$CellContext`e$ - 1.05] <= 0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) = ", 
+                    TraditionalForm[
+                    Abs[
+                    "\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], \
+$CellContext`e$ > 1.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) > ", 
+                    TraditionalForm[
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}]]}], 
+                   AxesLabel -> {
+                    Row[{
+                    Subscript[
+                    Style["v", Italic, 14], 1], " (km/s)"}], 
+                    Style["e", Italic, 14]}, PlotStyle -> Darker[Green]], 
+                  Graphics[{{Red, 
+                    PointSize[Large], 
+                    Point[{$CellContext`v1$$/1000, 
+                    Abs[$CellContext`e$]}]}, {Purple, 
+                    Arrowheads[0.03], 
+                    
+                    Arrow[{{$CellContext`v1$$/1000, 0}, {$CellContext`v1$$/
+                    1000, 
+                    Abs[$CellContext`e$]}}]}}]]}]}]}]]]], 
+      "Specifications" :> {{{$CellContext`M$$, 6.*^24, "mass of planet"}, 
+         2.*^24, 1.6*^25, 5.960464477539062*^16, Appearance -> 
+         "Labeled"}, {{$CellContext`x1$$, 600000, 
+          Row[{"initial altitude ", 
+            Subscript[
+             Style["x", Italic], "1"]}]}, 150000, 1000000, 10000, Appearance -> 
+         "Labeled"}, {{$CellContext`v1$$, 19000, 
+          Row[{"launch speed ", 
+            Subscript[
+             Style["v", Italic], "1"]}]}, 5000, 53800, 800, Appearance -> 
+         "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{558., {264., 269.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->13315980]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`M$$ = 6.*^24, $CellContext`v1$$ = 
+    19000, $CellContext`x1$$ = 600000, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`M$$], 6.*^24, "mass of planet"}, 2.*^24, 1.6*^25, 
+      5.960464477539062*^16}, {{
+       Hold[$CellContext`x1$$], 600000, 
+       Row[{"initial altitude ", 
+         Subscript[
+          Style["x", Italic], "1"]}]}, 150000, 1000000, 10000}, {{
+       Hold[$CellContext`v1$$], 19000, 
+       Row[{"launch speed ", 
+         Subscript[
+          Style["v", Italic], "1"]}]}, 5000, 53800, 800}}, Typeset`size$$ = {
+    509., {190., 197.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`M$6315$$ = 
+    0, $CellContext`x1$6316$$ = 0, $CellContext`v1$6317$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`M$$ = 6.*^24, $CellContext`v1$$ = 
+        19000, $CellContext`x1$$ = 600000}, "ControllerVariables" :> {
+        Hold[$CellContext`M$$, $CellContext`M$6315$$, 0], 
+        Hold[$CellContext`x1$$, $CellContext`x1$6316$$, 0], 
+        Hold[$CellContext`v1$$, $CellContext`v1$6317$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`G$, $CellContext`e$, $CellContext`d$, \
+$CellContext`x2$, $CellContext`v2$}, $CellContext`G$ = 
+         6.67 10^(-11); $CellContext`e$ = $CellContext`x1$$ \
+($CellContext`v1$$^2/($CellContext`G$ $CellContext`M$$)) - 
+          1; $CellContext`d$ = $CellContext`v1$$^2 \
+($CellContext`x1$$^2/($CellContext`x1$$ $CellContext`v1$$^2 - $CellContext`G$ \
+$CellContext`M$$)); $CellContext`x2$ = $CellContext`v1$$^2 \
+($CellContext`x1$$^2/((
+             2 $CellContext`G$) $CellContext`M$$ - $CellContext`v1$$^2 \
+$CellContext`x1$$)); $CellContext`v2$ = $CellContext`v1$$ \
+($CellContext`x1$$/($CellContext`v1$$^2 ($CellContext`x1$$^2/((
+              2 $CellContext`G$) $CellContext`M$$ - $CellContext`v1$$^2 \
+$CellContext`x1$$)))); Text[
+          Pane[
+           Column[{
+             Row[{"planet mass = ", 
+               ScientificForm[$CellContext`M$$, 3], " kg"}], 
+             Row[{
+               Subscript[
+                Style["x", Italic], 2], " = ", 
+               If[$CellContext`e$ < 1, 
+                Style[$CellContext`x2$/1000], "\[Infinity]"], 
+               If[$CellContext`e$ < 1, " km"]}], 
+             Row[{
+               Subscript[
+                Style["v", Italic], 2], " = ", 
+               If[$CellContext`e$ < 1, 
+                Row[{$CellContext`v2$, " m/s"}], "N/A"]}], 
+             Row[{"eccentricity = ", 
+               Abs[$CellContext`e$]}], 
+             Row[{
+               Show[
+                
+                PolarPlot[$CellContext`e$ ($CellContext`d$/(
+                  1 + $CellContext`e$ 
+                   Cos[$CellContext`\[Theta]])), {$CellContext`\[Theta], 0, 
+                  If[
+                  Abs[$CellContext`e$] > 1, ArcCos[(-1)/$CellContext`e$] - Pi/
+                   1000, 2 Pi]}, 
+                 PlotRange -> {{-1200000, 1200000}, {-1200000, 1200000}}, 
+                 ImageSize -> 250, PlotStyle -> {Red, 
+                   AbsoluteDashing[{5, 6, 12, 6}], Thick}, Axes -> False, 
+                 Background -> Black], 
+                
+                PolarPlot[$CellContext`e$ ($CellContext`d$/(
+                  1 + $CellContext`e$ 
+                   Cos[$CellContext`\[Theta]])), {$CellContext`\[Theta], 
+                  If[
+                  Abs[$CellContext`e$] > 1, -ArcCos[(-1)/$CellContext`e$] + 
+                   Pi/1000, 0], 0.001}, 
+                 PlotRange -> {{-1000000, 1000000}, {-1000000, 1000000}}, 
+                 PlotStyle -> {Red, 
+                   AbsoluteDashing[{5, 6, 12, 6}], Thick}], 
+                
+                ParametricPlot[{$CellContext`d$, $CellContext`u}, \
+{$CellContext`u, -1300000, 1300000}, PlotStyle -> {Thick, Blue}], 
+                Graphics[{{Yellow, Thick, 
+                   Line[{{0, 0}, {$CellContext`x1$$, 0}}]}, {Yellow, Thick, 
+                   Arrowheads[0.04], 
+                   
+                   Arrow[{{$CellContext`x1$$, 0}, {$CellContext`x1$$, 
+                    12 $CellContext`v1$$}}]}, {Yellow, 
+                   Text[
+                    Subscript[
+                    Style["x", Italic], 1], {$CellContext`x1$$/2, -50000}]}, {
+                  Yellow, 
+                   Text[
+                    Subscript[
+                    Style["v", Italic], 1], {$CellContext`x1$$ + 80000, 
+                    4 $CellContext`v1$$}]}, 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], Thick, 
+                    Line[{{0, 0}, {-$CellContext`x2$, 0}}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], Thick, 
+                    Arrowheads[0.04], 
+                    
+                    Arrow[{{-$CellContext`x2$, 
+                    0}, {-$CellContext`x2$, (-12) $CellContext`v2$}}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], 
+                    Text[
+                    Style[
+                    Subscript[
+                    Style["x", Italic], 2]], {(-$CellContext`x2$)/2.4, 
+                    50000}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], 
+                    Text[
+                    Subscript[
+                    Style["v", Italic], 2], {-$CellContext`x2$ - 
+                    60000, (-4) $CellContext`v2$}]}], {
+                   Lighter[Blue, 0.3], 
+                   Disk[{0, 0}, 40000]}, {
+                   Lighter[Blue, 0.3], 
+                   Text[
+                    Style["directrix", 14], {$CellContext`d$, -1150000}]}}], 
+                ImageSize -> 300], "   ", 
+               Column[{
+                 Graphics3D[{
+                   Which[$CellContext`e$ < 1.118043398, {{
+                    Rotate[
+                    
+                    Polygon[{{-5, -5, 0.5}, {-5, 5, 0.5}, {5, 5, 0.5}, {
+                    5, -5, 0.5}}], 
+                    ArcSin[0.894419664 $CellContext`e$], {0, 1, 
+                    0}, {-0.25, 0, 0.5}]}, {{
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 0}, {0, 0, 1}}, 0.5]}, {
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 2}, {0, 0, 1}}, 0.5]}}}, 
+                    1.118043398 < $CellContext`e$ < 10, {{
+                    Scale[{{
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 0}, {0, 0, 1}}, 0.5]}, {
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 2}, {0, 0, 1}}, 0.5]}}, {
+                    Sqrt[$CellContext`e$^2 - 1] + 0.5, 
+                    Sqrt[$CellContext`e$^2 - 1] + 0.5, 1}]}, {
+                    
+                    Polygon[{{-0.25, -5, -5}, {-0.25, -5, 5}, {-0.25, 5, 
+                    5}, {-0.25, 5, -5}}]}}]}, 
+                  PlotRange -> {{-1, 1}, {-1, 1}, {0, 2}}, 
+                  ImageSize -> {150, 150}, SphericalRegion -> True, Boxed -> 
+                  False], 
+                 Show[
+                  Plot[{
+                    
+                    Abs[$CellContext`x1$$ (($CellContext`x 
+                    1000)^2/($CellContext`G$ $CellContext`M$$)) - 
+                    1]}, {$CellContext`x, 0, 54}, ImageSize -> 200, 
+                   PlotRange -> {-1.4, 8}, PlotLabel -> Column[{
+                    Style["eccentricity", 14], 
+                    Which[$CellContext`e$ <= -0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) < ", 
+                    
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    Abs[$CellContext`e$] < 0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) = ", 
+                    
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    And[$CellContext`e$ >= 0.05, $CellContext`e$ < 1], 
+                    Row[{
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]], 
+                    " < \!\(\*SubscriptBox[\(KE\), \(o\)]\) < ", 
+                    TraditionalForm[
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    Abs[$CellContext`e$ - 1.05] <= 0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) = ", 
+                    TraditionalForm[
+                    Abs[
+                    "\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], \
+$CellContext`e$ > 1.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) > ", 
+                    TraditionalForm[
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}]]}], 
+                   AxesLabel -> {
+                    Row[{
+                    Subscript[
+                    Style["v", Italic, 14], 1], " (km/s)"}], 
+                    Style["e", Italic, 14]}, PlotStyle -> Darker[Green]], 
+                  Graphics[{{Red, 
+                    PointSize[Large], 
+                    Point[{$CellContext`v1$$/1000, 
+                    Abs[$CellContext`e$]}]}, {Purple, 
+                    Arrowheads[0.03], 
+                    
+                    Arrow[{{$CellContext`v1$$/1000, 0}, {$CellContext`v1$$/
+                    1000, 
+                    Abs[$CellContext`e$]}}]}}]]}]}]}]]]], 
+      "Specifications" :> {{{$CellContext`M$$, 6.*^24, "mass of planet"}, 
+         2.*^24, 1.6*^25, 5.960464477539062*^16, Appearance -> 
+         "Labeled"}, {{$CellContext`x1$$, 600000, 
+          Row[{"initial altitude ", 
+            Subscript[
+             Style["x", Italic], "1"]}]}, 150000, 1000000, 10000, Appearance -> 
+         "Labeled"}, {{$CellContext`v1$$, 19000, 
+          Row[{"launch speed ", 
+            Subscript[
+             Style["v", Italic], "1"]}]}, 5000, 53800, 800, Appearance -> 
+         "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{558., {264., 269.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->367479381],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`M$$ = 6.*^24, $CellContext`v1$$ = 
+    49800, $CellContext`x1$$ = 600000, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`M$$], 6.*^24, "mass of planet"}, 2.*^24, 1.6*^25, 
+      5.960464477539062*^16}, {{
+       Hold[$CellContext`x1$$], 600000, 
+       Row[{"initial altitude ", 
+         Subscript[
+          Style["x", Italic], "1"]}]}, 150000, 1000000, 10000}, {{
+       Hold[$CellContext`v1$$], 49800, 
+       Row[{"launch speed ", 
+         Subscript[
+          Style["v", Italic], "1"]}]}, 5000, 53800, 800}}, Typeset`size$$ = {
+    509., {184., 191.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`M$6377$$ = 
+    0, $CellContext`x1$6378$$ = 0, $CellContext`v1$6379$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`M$$ = 6.*^24, $CellContext`v1$$ = 
+        49800, $CellContext`x1$$ = 600000}, "ControllerVariables" :> {
+        Hold[$CellContext`M$$, $CellContext`M$6377$$, 0], 
+        Hold[$CellContext`x1$$, $CellContext`x1$6378$$, 0], 
+        Hold[$CellContext`v1$$, $CellContext`v1$6379$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`G$, $CellContext`e$, $CellContext`d$, \
+$CellContext`x2$, $CellContext`v2$}, $CellContext`G$ = 
+         6.67 10^(-11); $CellContext`e$ = $CellContext`x1$$ \
+($CellContext`v1$$^2/($CellContext`G$ $CellContext`M$$)) - 
+          1; $CellContext`d$ = $CellContext`v1$$^2 \
+($CellContext`x1$$^2/($CellContext`x1$$ $CellContext`v1$$^2 - $CellContext`G$ \
+$CellContext`M$$)); $CellContext`x2$ = $CellContext`v1$$^2 \
+($CellContext`x1$$^2/((
+             2 $CellContext`G$) $CellContext`M$$ - $CellContext`v1$$^2 \
+$CellContext`x1$$)); $CellContext`v2$ = $CellContext`v1$$ \
+($CellContext`x1$$/($CellContext`v1$$^2 ($CellContext`x1$$^2/((
+              2 $CellContext`G$) $CellContext`M$$ - $CellContext`v1$$^2 \
+$CellContext`x1$$)))); Text[
+          Pane[
+           Column[{
+             Row[{"planet mass = ", 
+               ScientificForm[$CellContext`M$$, 3], " kg"}], 
+             Row[{
+               Subscript[
+                Style["x", Italic], 2], " = ", 
+               If[$CellContext`e$ < 1, 
+                Style[$CellContext`x2$/1000], "\[Infinity]"], 
+               If[$CellContext`e$ < 1, " km"]}], 
+             Row[{
+               Subscript[
+                Style["v", Italic], 2], " = ", 
+               If[$CellContext`e$ < 1, 
+                Row[{$CellContext`v2$, " m/s"}], "N/A"]}], 
+             Row[{"eccentricity = ", 
+               Abs[$CellContext`e$]}], 
+             Row[{
+               Show[
+                
+                PolarPlot[$CellContext`e$ ($CellContext`d$/(
+                  1 + $CellContext`e$ 
+                   Cos[$CellContext`\[Theta]])), {$CellContext`\[Theta], 0, 
+                  If[
+                  Abs[$CellContext`e$] > 1, ArcCos[(-1)/$CellContext`e$] - Pi/
+                   1000, 2 Pi]}, 
+                 PlotRange -> {{-1200000, 1200000}, {-1200000, 1200000}}, 
+                 ImageSize -> 250, PlotStyle -> {Red, 
+                   AbsoluteDashing[{5, 6, 12, 6}], Thick}, Axes -> False, 
+                 Background -> Black], 
+                
+                PolarPlot[$CellContext`e$ ($CellContext`d$/(
+                  1 + $CellContext`e$ 
+                   Cos[$CellContext`\[Theta]])), {$CellContext`\[Theta], 
+                  If[
+                  Abs[$CellContext`e$] > 1, -ArcCos[(-1)/$CellContext`e$] + 
+                   Pi/1000, 0], 0.001}, 
+                 PlotRange -> {{-1000000, 1000000}, {-1000000, 1000000}}, 
+                 PlotStyle -> {Red, 
+                   AbsoluteDashing[{5, 6, 12, 6}], Thick}], 
+                
+                ParametricPlot[{$CellContext`d$, $CellContext`u}, \
+{$CellContext`u, -1300000, 1300000}, PlotStyle -> {Thick, Blue}], 
+                Graphics[{{Yellow, Thick, 
+                   Line[{{0, 0}, {$CellContext`x1$$, 0}}]}, {Yellow, Thick, 
+                   Arrowheads[0.04], 
+                   
+                   Arrow[{{$CellContext`x1$$, 0}, {$CellContext`x1$$, 
+                    12 $CellContext`v1$$}}]}, {Yellow, 
+                   Text[
+                    Subscript[
+                    Style["x", Italic], 1], {$CellContext`x1$$/2, -50000}]}, {
+                  Yellow, 
+                   Text[
+                    Subscript[
+                    Style["v", Italic], 1], {$CellContext`x1$$ + 80000, 
+                    4 $CellContext`v1$$}]}, 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], Thick, 
+                    Line[{{0, 0}, {-$CellContext`x2$, 0}}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], Thick, 
+                    Arrowheads[0.04], 
+                    
+                    Arrow[{{-$CellContext`x2$, 
+                    0}, {-$CellContext`x2$, (-12) $CellContext`v2$}}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], 
+                    Text[
+                    Style[
+                    Subscript[
+                    Style["x", Italic], 2]], {(-$CellContext`x2$)/2.4, 
+                    50000}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], 
+                    Text[
+                    Subscript[
+                    Style["v", Italic], 2], {-$CellContext`x2$ - 
+                    60000, (-4) $CellContext`v2$}]}], {
+                   Lighter[Blue, 0.3], 
+                   Disk[{0, 0}, 40000]}, {
+                   Lighter[Blue, 0.3], 
+                   Text[
+                    Style["directrix", 14], {$CellContext`d$, -1150000}]}}], 
+                ImageSize -> 300], "   ", 
+               Column[{
+                 Graphics3D[{
+                   Which[$CellContext`e$ < 1.118043398, {{
+                    Rotate[
+                    
+                    Polygon[{{-5, -5, 0.5}, {-5, 5, 0.5}, {5, 5, 0.5}, {
+                    5, -5, 0.5}}], 
+                    ArcSin[0.894419664 $CellContext`e$], {0, 1, 
+                    0}, {-0.25, 0, 0.5}]}, {{
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 0}, {0, 0, 1}}, 0.5]}, {
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 2}, {0, 0, 1}}, 0.5]}}}, 
+                    1.118043398 < $CellContext`e$ < 10, {{
+                    Scale[{{
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 0}, {0, 0, 1}}, 0.5]}, {
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 2}, {0, 0, 1}}, 0.5]}}, {
+                    Sqrt[$CellContext`e$^2 - 1] + 0.5, 
+                    Sqrt[$CellContext`e$^2 - 1] + 0.5, 1}]}, {
+                    
+                    Polygon[{{-0.25, -5, -5}, {-0.25, -5, 5}, {-0.25, 5, 
+                    5}, {-0.25, 5, -5}}]}}]}, 
+                  PlotRange -> {{-1, 1}, {-1, 1}, {0, 2}}, 
+                  ImageSize -> {150, 150}, SphericalRegion -> True, Boxed -> 
+                  False], 
+                 Show[
+                  Plot[{
+                    
+                    Abs[$CellContext`x1$$ (($CellContext`x 
+                    1000)^2/($CellContext`G$ $CellContext`M$$)) - 
+                    1]}, {$CellContext`x, 0, 54}, ImageSize -> 200, 
+                   PlotRange -> {-1.4, 8}, PlotLabel -> Column[{
+                    Style["eccentricity", 14], 
+                    Which[$CellContext`e$ <= -0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) < ", 
+                    
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    Abs[$CellContext`e$] < 0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) = ", 
+                    
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    And[$CellContext`e$ >= 0.05, $CellContext`e$ < 1], 
+                    Row[{
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]], 
+                    " < \!\(\*SubscriptBox[\(KE\), \(o\)]\) < ", 
+                    TraditionalForm[
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    Abs[$CellContext`e$ - 1.05] <= 0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) = ", 
+                    TraditionalForm[
+                    Abs[
+                    "\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], \
+$CellContext`e$ > 1.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) > ", 
+                    TraditionalForm[
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}]]}], 
+                   AxesLabel -> {
+                    Row[{
+                    Subscript[
+                    Style["v", Italic, 14], 1], " (km/s)"}], 
+                    Style["e", Italic, 14]}, PlotStyle -> Darker[Green]], 
+                  Graphics[{{Red, 
+                    PointSize[Large], 
+                    Point[{$CellContext`v1$$/1000, 
+                    Abs[$CellContext`e$]}]}, {Purple, 
+                    Arrowheads[0.03], 
+                    
+                    Arrow[{{$CellContext`v1$$/1000, 0}, {$CellContext`v1$$/
+                    1000, 
+                    Abs[$CellContext`e$]}}]}}]]}]}]}]]]], 
+      "Specifications" :> {{{$CellContext`M$$, 6.*^24, "mass of planet"}, 
+         2.*^24, 1.6*^25, 5.960464477539062*^16, Appearance -> 
+         "Labeled"}, {{$CellContext`x1$$, 600000, 
+          Row[{"initial altitude ", 
+            Subscript[
+             Style["x", Italic], "1"]}]}, 150000, 1000000, 10000, Appearance -> 
+         "Labeled"}, {{$CellContext`v1$$, 49800, 
+          Row[{"launch speed ", 
+            Subscript[
+             Style["v", Italic], "1"]}]}, 5000, 53800, 800, Appearance -> 
+         "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{558., {258., 263.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->2483238],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`M$$ = 
+    7.333333313465118*^24, $CellContext`v1$$ = 34600, $CellContext`x1$$ = 
+    410000, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`M$$], 7.333333313465118*^24, "mass of planet"}, 
+      2.*^24, 1.6*^25, 5.960464477539062*^16}, {{
+       Hold[$CellContext`x1$$], 410000, 
+       Row[{"initial altitude ", 
+         Subscript[
+          Style["x", Italic], "1"]}]}, 150000, 1000000, 10000}, {{
+       Hold[$CellContext`v1$$], 34600, 
+       Row[{"launch speed ", 
+         Subscript[
+          Style["v", Italic], "1"]}]}, 5000, 53800, 800}}, Typeset`size$$ = {
+    509., {190., 197.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`M$6439$$ = 
+    0, $CellContext`x1$6440$$ = 0, $CellContext`v1$6441$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`M$$ = 
+        7.333333313465118*^24, $CellContext`v1$$ = 34600, $CellContext`x1$$ = 
+        410000}, "ControllerVariables" :> {
+        Hold[$CellContext`M$$, $CellContext`M$6439$$, 0], 
+        Hold[$CellContext`x1$$, $CellContext`x1$6440$$, 0], 
+        Hold[$CellContext`v1$$, $CellContext`v1$6441$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`G$, $CellContext`e$, $CellContext`d$, \
+$CellContext`x2$, $CellContext`v2$}, $CellContext`G$ = 
+         6.67 10^(-11); $CellContext`e$ = $CellContext`x1$$ \
+($CellContext`v1$$^2/($CellContext`G$ $CellContext`M$$)) - 
+          1; $CellContext`d$ = $CellContext`v1$$^2 \
+($CellContext`x1$$^2/($CellContext`x1$$ $CellContext`v1$$^2 - $CellContext`G$ \
+$CellContext`M$$)); $CellContext`x2$ = $CellContext`v1$$^2 \
+($CellContext`x1$$^2/((
+             2 $CellContext`G$) $CellContext`M$$ - $CellContext`v1$$^2 \
+$CellContext`x1$$)); $CellContext`v2$ = $CellContext`v1$$ \
+($CellContext`x1$$/($CellContext`v1$$^2 ($CellContext`x1$$^2/((
+              2 $CellContext`G$) $CellContext`M$$ - $CellContext`v1$$^2 \
+$CellContext`x1$$)))); Text[
+          Pane[
+           Column[{
+             Row[{"planet mass = ", 
+               ScientificForm[$CellContext`M$$, 3], " kg"}], 
+             Row[{
+               Subscript[
+                Style["x", Italic], 2], " = ", 
+               If[$CellContext`e$ < 1, 
+                Style[$CellContext`x2$/1000], "\[Infinity]"], 
+               If[$CellContext`e$ < 1, " km"]}], 
+             Row[{
+               Subscript[
+                Style["v", Italic], 2], " = ", 
+               If[$CellContext`e$ < 1, 
+                Row[{$CellContext`v2$, " m/s"}], "N/A"]}], 
+             Row[{"eccentricity = ", 
+               Abs[$CellContext`e$]}], 
+             Row[{
+               Show[
+                
+                PolarPlot[$CellContext`e$ ($CellContext`d$/(
+                  1 + $CellContext`e$ 
+                   Cos[$CellContext`\[Theta]])), {$CellContext`\[Theta], 0, 
+                  If[
+                  Abs[$CellContext`e$] > 1, ArcCos[(-1)/$CellContext`e$] - Pi/
+                   1000, 2 Pi]}, 
+                 PlotRange -> {{-1200000, 1200000}, {-1200000, 1200000}}, 
+                 ImageSize -> 250, PlotStyle -> {Red, 
+                   AbsoluteDashing[{5, 6, 12, 6}], Thick}, Axes -> False, 
+                 Background -> Black], 
+                
+                PolarPlot[$CellContext`e$ ($CellContext`d$/(
+                  1 + $CellContext`e$ 
+                   Cos[$CellContext`\[Theta]])), {$CellContext`\[Theta], 
+                  If[
+                  Abs[$CellContext`e$] > 1, -ArcCos[(-1)/$CellContext`e$] + 
+                   Pi/1000, 0], 0.001}, 
+                 PlotRange -> {{-1000000, 1000000}, {-1000000, 1000000}}, 
+                 PlotStyle -> {Red, 
+                   AbsoluteDashing[{5, 6, 12, 6}], Thick}], 
+                
+                ParametricPlot[{$CellContext`d$, $CellContext`u}, \
+{$CellContext`u, -1300000, 1300000}, PlotStyle -> {Thick, Blue}], 
+                Graphics[{{Yellow, Thick, 
+                   Line[{{0, 0}, {$CellContext`x1$$, 0}}]}, {Yellow, Thick, 
+                   Arrowheads[0.04], 
+                   
+                   Arrow[{{$CellContext`x1$$, 0}, {$CellContext`x1$$, 
+                    12 $CellContext`v1$$}}]}, {Yellow, 
+                   Text[
+                    Subscript[
+                    Style["x", Italic], 1], {$CellContext`x1$$/2, -50000}]}, {
+                  Yellow, 
+                   Text[
+                    Subscript[
+                    Style["v", Italic], 1], {$CellContext`x1$$ + 80000, 
+                    4 $CellContext`v1$$}]}, 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], Thick, 
+                    Line[{{0, 0}, {-$CellContext`x2$, 0}}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], Thick, 
+                    Arrowheads[0.04], 
+                    
+                    Arrow[{{-$CellContext`x2$, 
+                    0}, {-$CellContext`x2$, (-12) $CellContext`v2$}}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], 
+                    Text[
+                    Style[
+                    Subscript[
+                    Style["x", Italic], 2]], {(-$CellContext`x2$)/2.4, 
+                    50000}]}], 
+                  If[Abs[$CellContext`e$] < 1, {
+                    Lighter[Green], 
+                    Text[
+                    Subscript[
+                    Style["v", Italic], 2], {-$CellContext`x2$ - 
+                    60000, (-4) $CellContext`v2$}]}], {
+                   Lighter[Blue, 0.3], 
+                   Disk[{0, 0}, 40000]}, {
+                   Lighter[Blue, 0.3], 
+                   Text[
+                    Style["directrix", 14], {$CellContext`d$, -1150000}]}}], 
+                ImageSize -> 300], "   ", 
+               Column[{
+                 Graphics3D[{
+                   Which[$CellContext`e$ < 1.118043398, {{
+                    Rotate[
+                    
+                    Polygon[{{-5, -5, 0.5}, {-5, 5, 0.5}, {5, 5, 0.5}, {
+                    5, -5, 0.5}}], 
+                    ArcSin[0.894419664 $CellContext`e$], {0, 1, 
+                    0}, {-0.25, 0, 0.5}]}, {{
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 0}, {0, 0, 1}}, 0.5]}, {
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 2}, {0, 0, 1}}, 0.5]}}}, 
+                    1.118043398 < $CellContext`e$ < 10, {{
+                    Scale[{{
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 0}, {0, 0, 1}}, 0.5]}, {
+                    Opacity[0.5], 
+                    Cone[{{0, 0, 2}, {0, 0, 1}}, 0.5]}}, {
+                    Sqrt[$CellContext`e$^2 - 1] + 0.5, 
+                    Sqrt[$CellContext`e$^2 - 1] + 0.5, 1}]}, {
+                    
+                    Polygon[{{-0.25, -5, -5}, {-0.25, -5, 5}, {-0.25, 5, 
+                    5}, {-0.25, 5, -5}}]}}]}, 
+                  PlotRange -> {{-1, 1}, {-1, 1}, {0, 2}}, 
+                  ImageSize -> {150, 150}, SphericalRegion -> True, Boxed -> 
+                  False], 
+                 Show[
+                  Plot[{
+                    
+                    Abs[$CellContext`x1$$ (($CellContext`x 
+                    1000)^2/($CellContext`G$ $CellContext`M$$)) - 
+                    1]}, {$CellContext`x, 0, 54}, ImageSize -> 200, 
+                   PlotRange -> {-1.4, 8}, PlotLabel -> Column[{
+                    Style["eccentricity", 14], 
+                    Which[$CellContext`e$ <= -0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) < ", 
+                    
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    Abs[$CellContext`e$] < 0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) = ", 
+                    
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    And[$CellContext`e$ >= 0.05, $CellContext`e$ < 1], 
+                    Row[{
+                    
+                    TraditionalForm[(1/2) 
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]], 
+                    " < \!\(\*SubscriptBox[\(KE\), \(o\)]\) < ", 
+                    TraditionalForm[
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], 
+                    Abs[$CellContext`e$ - 1.05] <= 0.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) = ", 
+                    TraditionalForm[
+                    Abs[
+                    "\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}], \
+$CellContext`e$ > 1.05, 
+                    Row[{"\!\(\*SubscriptBox[\(KE\), \(o\)]\) > ", 
+                    TraditionalForm[
+                    Abs["\!\(\*SubscriptBox[\(PE\), \(o\)]\)"]]}]]}], 
+                   AxesLabel -> {
+                    Row[{
+                    Subscript[
+                    Style["v", Italic, 14], 1], " (km/s)"}], 
+                    Style["e", Italic, 14]}, PlotStyle -> Darker[Green]], 
+                  Graphics[{{Red, 
+                    PointSize[Large], 
+                    Point[{$CellContext`v1$$/1000, 
+                    Abs[$CellContext`e$]}]}, {Purple, 
+                    Arrowheads[0.03], 
+                    
+                    Arrow[{{$CellContext`v1$$/1000, 0}, {$CellContext`v1$$/
+                    1000, 
+                    Abs[$CellContext`e$]}}]}}]]}]}]}]]]], 
+      "Specifications" :> {{{$CellContext`M$$, 7.333333313465118*^24, 
+          "mass of planet"}, 2.*^24, 1.6*^25, 5.960464477539062*^16, 
+         Appearance -> "Labeled"}, {{$CellContext`x1$$, 410000, 
+          Row[{"initial altitude ", 
+            Subscript[
+             Style["x", Italic], "1"]}]}, 150000, 1000000, 10000, Appearance -> 
+         "Labeled"}, {{$CellContext`v1$$, 34600, 
+          Row[{"launch speed ", 
+            Subscript[
+             Style["v", Italic], "1"]}]}, 5000, 53800, 800, Appearance -> 
+         "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{558., {264., 269.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->30780258]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "DetailsSection"],
+
+Cell[TextData[{
+ "For a circular or elliptical orbit, the potential energy is twice the \
+negative of kinetic energy, as a result of the virial theorem. The \
+eccentricity ",
+ Cell[BoxData[
+  FormBox["e", TraditionalForm]], "InlineMath"],
+ " is zero for a circular orbit and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"0", "<", "e", "<", "1"}], TraditionalForm]], "InlineMath"],
+ " for an elliptical orbit. For a hyperbolic orbit ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"e", ">", "1"}], TraditionalForm]], "InlineMath"],
+ ". When ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"e", "=", "1"}], TraditionalForm]], "InlineMath"],
+ ", the shape of the orbit degenerates to a parabola, moving at the escape \
+velocity."
+}], "DetailNotes",
+ CellChangeTimes->{{3.577733803920152*^9, 3.577733809177152*^9}},
+ CellID->29576813],
+
+Cell["\<\
+In this Demonstration, the largest eccentricity is about 21. Also note that \
+the conic image will not generate for eccentricities greater than about 10.\
+\>", "DetailNotes",
+ CellChangeTimes->{{3.5777338094621525`*^9, 3.5777338474951525`*^9}, {
+  3.577733892576152*^9, 3.5777339037541523`*^9}},
+ CellID->174295755]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.574092861951033*^9},
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{{3.574092860513061*^9, 3.5740928641567297`*^9}},
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{{3.574092859266941*^9, 3.574092867141045*^9}},
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.574092858179125*^9},
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9, 
+  3.574092865756646*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.5728794641596937`*^9},
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["orbits", "SearchTerms",
+ CellChangeTimes->{{3.572836546939781*^9, 3.5728365486697817`*^9}, {
+  3.5728769410743556`*^9, 3.5728769410899553`*^9}},
+ CellID->2930969],
+
+Cell["gravitational orbit", "SearchTerms",
+ CellChangeTimes->{{3.5728769416827555`*^9, 3.5728769468047557`*^9}},
+ CellID->342385312],
+
+Cell["planet", "SearchTerms",
+ CellChangeTimes->{{3.5728365509287815`*^9, 3.5728365533707814`*^9}},
+ CellID->340322871],
+
+Cell["satellite", "SearchTerms",
+ CellChangeTimes->{{3.5728365949007816`*^9, 3.5728365972217817`*^9}},
+ CellID->3888339],
+
+Cell["conics", "SearchTerms",
+ CellChangeTimes->{{3.572836598024781*^9, 3.5728366032947817`*^9}, {
+  3.577733508727152*^9, 3.577733508729152*^9}},
+ CellID->311816596],
+
+Cell["cone", "SearchTerms",
+ CellChangeTimes->{{3.5777335093841524`*^9, 3.5777335279901524`*^9}},
+ CellID->570155124],
+
+Cell["conic sections", "SearchTerms",
+ CellChangeTimes->{{3.577733528335152*^9, 3.5777335303701525`*^9}},
+ CellID->207932400],
+
+Cell["ellipses", "SearchTerms",
+ CellChangeTimes->{{3.5728366048987813`*^9, 3.5728366063957815`*^9}},
+ CellID->165352610],
+
+Cell["circles", "SearchTerms",
+ CellChangeTimes->{{3.5728366069267817`*^9, 3.5728366085937815`*^9}},
+ CellID->40154180],
+
+Cell["parabolas", "SearchTerms",
+ CellChangeTimes->{{3.5728366092827816`*^9, 3.5728366116207814`*^9}},
+ CellID->513996446],
+
+Cell["hyperbolas", "SearchTerms",
+ CellChangeTimes->{{3.5728366120677814`*^9, 3.5728366268567815`*^9}},
+ CellID->1397479],
+
+Cell["launch speed", "SearchTerms",
+ CellChangeTimes->{{3.5728366273057814`*^9, 3.5728366302547817`*^9}},
+ CellID->26771244],
+
+Cell["launch", "SearchTerms",
+ CellChangeTimes->{{3.572836632090781*^9, 3.5728366411537814`*^9}},
+ CellID->639558038],
+
+Cell["directrix", "SearchTerms",
+ CellChangeTimes->{{3.5728366414487815`*^9, 3.5728366442047815`*^9}},
+ CellID->38335607],
+
+Cell["eccentricity", "SearchTerms",
+ CellChangeTimes->{{3.5728366516437817`*^9, 3.572836653592781*^9}},
+ CellID->552582277],
+
+Cell["eccentricity of orbit", "SearchTerms",
+ CellChangeTimes->{{3.5728366538797817`*^9, 3.5728366584227815`*^9}},
+ CellID->596803238],
+
+Cell["kinetic energy", "SearchTerms",
+ CellChangeTimes->{{3.5728366665707817`*^9, 3.572836669045781*^9}},
+ CellID->134821181],
+
+Cell["potential energy", "SearchTerms",
+ CellChangeTimes->{{3.5728366693607817`*^9, 3.5728366888337812`*^9}},
+ CellID->480876502],
+
+Cell["escape velocity", "SearchTerms",
+ CellChangeTimes->{{3.5728366892017813`*^9, 3.5728366979027815`*^9}},
+ CellID->441542281],
+
+Cell["angular momentum", "SearchTerms",
+ CellChangeTimes->{{3.5728366983257813`*^9, 3.572836702217781*^9}},
+ CellID->3077904],
+
+Cell["conservation of angular momentum", "SearchTerms",
+ CellChangeTimes->{{3.5728367025467815`*^9, 3.5728367078727818`*^9}},
+ CellID->184914667],
+
+Cell["Kepler", "SearchTerms",
+ CellChangeTimes->{{3.5728367082587814`*^9, 3.5728367184527817`*^9}, {
+  3.5728769259111557`*^9, 3.572876925926756*^9}},
+ CellID->11574013],
+
+Cell["gravity", "SearchTerms",
+ CellChangeTimes->{{3.5728769276271553`*^9, 3.5728769299359555`*^9}},
+ CellID->49538189]
+}, Open  ]],
+
+Cell["", "RelatedLinksSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Victor Hakim & Bryce Kriegman",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Bryce+Kriegman"]\
+, None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Bryce+Kriegman"]
+}], "Author",
+ CellChangeTimes->{{3.572836756887781*^9, 3.572836763085781*^9}, {
+  3.5777333984551525`*^9, 3.577733500390152*^9}, {3.577805159142358*^9, 
+  3.5778051651349583`*^9}},
+ CellID->582665877]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1008, 647},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (October 6, 2011)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[91207, 2008, 353, 9, 22, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[91563, 2019, 678, 16, 22, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[92244, 2037, 408, 12, 22, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[92655, 2051, 703, 16, 22, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[93361, 2069, 885, 22, 22, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[94249, 2093, 393, 10, 22, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[94645, 2105, 1507, 32, 22, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[96155, 2139, 908, 21, 22, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 101190, 2297},
+ {"RotateAndZoomIn3D", 101299, 2300},
+ {"DragLocators", 101409, 2303},
+ {"CreateAndDeleteLocators", 101525, 2306},
+ {"SliderZoom", 101639, 2309},
+ {"GamepadControls", 101745, 2312},
+ {"AutomaticAnimation", 101859, 2315},
+ {"BookmarkAnimation", 101976, 2318}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 144, 2, 74, "DemoTitle"],
+Cell[726, 26, 33, 0, 287, "InitializationSection"],
+Cell[CellGroupData[{
+Cell[784, 30, 29, 0, 194, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[838, 34, 33022, 731, 1968, "Input"],
+Cell[33863, 767, 10924, 230, 545, "Output",
+ CellID->912056675]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44833, 1003, 36, 0, 169, "ManipulateCaptionSection"],
+Cell[44872, 1005, 1302, 20, 83, "ManipulateCaption"],
+Cell[46177, 1027, 253, 5, 22, "ManipulateCaption",
+ CellID->521013948]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46467, 1037, 28, 0, 173, "ThumbnailSection"],
+Cell[46498, 1039, 10816, 228, 545, "Output",
+ CellID->13315980]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57351, 1272, 28, 0, 143, "SnapshotsSection"],
+Cell[57382, 1274, 10817, 228, 545, "Output",
+ CellID->367479381],
+Cell[68202, 1504, 10815, 228, 533, "Output",
+ CellID->2483238],
+Cell[79020, 1734, 10907, 230, 545, "Output",
+ CellID->30780258]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[89964, 1969, 26, 0, 336, "DetailsSection"],
+Cell[89993, 1971, 809, 22, 53, "DetailNotes",
+ CellID->29576813],
+Cell[90805, 1995, 325, 6, 37, "DetailNotes",
+ CellID->174295755]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[91167, 2006, 37, 0, 126, "ControlSuggestionsSection"],
+Cell[91207, 2008, 353, 9, 22, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[91563, 2019, 678, 16, 22, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[92244, 2037, 408, 12, 22, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[92655, 2051, 703, 16, 22, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[93361, 2069, 885, 22, 22, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[94249, 2093, 393, 10, 22, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[94645, 2105, 1507, 32, 22, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[96155, 2139, 908, 21, 22, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[97100, 2165, 30, 0, 155, "SearchTermsSection"],
+Cell[97133, 2167, 168, 3, 22, "SearchTerms",
+ CellID->2930969],
+Cell[97304, 2172, 132, 2, 22, "SearchTerms",
+ CellID->342385312],
+Cell[97439, 2176, 119, 2, 22, "SearchTerms",
+ CellID->340322871],
+Cell[97561, 2180, 120, 2, 22, "SearchTerms",
+ CellID->3888339],
+Cell[97684, 2184, 166, 3, 22, "SearchTerms",
+ CellID->311816596],
+Cell[97853, 2189, 117, 2, 22, "SearchTerms",
+ CellID->570155124],
+Cell[97973, 2193, 125, 2, 22, "SearchTerms",
+ CellID->207932400],
+Cell[98101, 2197, 121, 2, 22, "SearchTerms",
+ CellID->165352610],
+Cell[98225, 2201, 119, 2, 22, "SearchTerms",
+ CellID->40154180],
+Cell[98347, 2205, 122, 2, 22, "SearchTerms",
+ CellID->513996446],
+Cell[98472, 2209, 121, 2, 22, "SearchTerms",
+ CellID->1397479],
+Cell[98596, 2213, 124, 2, 22, "SearchTerms",
+ CellID->26771244],
+Cell[98723, 2217, 117, 2, 22, "SearchTerms",
+ CellID->639558038],
+Cell[98843, 2221, 121, 2, 22, "SearchTerms",
+ CellID->38335607],
+Cell[98967, 2225, 123, 2, 22, "SearchTerms",
+ CellID->552582277],
+Cell[99093, 2229, 134, 2, 22, "SearchTerms",
+ CellID->596803238],
+Cell[99230, 2233, 125, 2, 22, "SearchTerms",
+ CellID->134821181],
+Cell[99358, 2237, 129, 2, 22, "SearchTerms",
+ CellID->480876502],
+Cell[99490, 2241, 128, 2, 22, "SearchTerms",
+ CellID->441542281],
+Cell[99621, 2245, 125, 2, 22, "SearchTerms",
+ CellID->3077904],
+Cell[99749, 2249, 145, 2, 22, "SearchTerms",
+ CellID->184914667],
+Cell[99897, 2253, 169, 3, 22, "SearchTerms",
+ CellID->11574013],
+Cell[100069, 2258, 119, 2, 22, "SearchTerms",
+ CellID->49538189]
+}, Open  ]],
+Cell[100203, 2263, 31, 0, 141, "RelatedLinksSection"],
+Cell[CellGroupData[{
+Cell[100259, 2267, 25, 0, 129, "AuthorSection"],
+Cell[100287, 2269, 502, 13, 22, "Author",
+ CellID->582665877]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
